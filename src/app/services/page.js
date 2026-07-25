@@ -1,0 +1,480 @@
+"use client";
+
+import React, { useState } from "react";
+import Image from "next/image";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import InView from "@/components/InView";
+import { 
+  LuCheck, 
+  LuCalendar, 
+  LuShield, 
+  LuAward, 
+  LuFactory, 
+  LuUsers, 
+  LuHeartHandshake, 
+  LuArrowRight 
+} from "react-icons/lu";
+import "./services.css";
+
+export default function ServicesPage() {
+  // Jump scroll helper
+  const scrollToAnchor = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  // Why choose us items
+  const whyChooseUsData = [
+    {
+      id: 1,
+      icon: <LuAward size={36} />,
+      title: "21+ Years Experience",
+      desc: "Being the best affordable interior designers in Chennai, we bring expertise and dedication to every project, turning your design dreams into reality.",
+    },
+    {
+      id: 2,
+      icon: <LuCalendar size={36} />,
+      title: "45 Days Delivery",
+      desc: "We are acknowledged as a premier interior design company in Chennai; our designers take pride in crafting luxury projects within the agreed timeframe.",
+    },
+    {
+      id: 3,
+      icon: <LuShield size={36} />,
+      title: "10 Years Warranty",
+      desc: "Specializing in interior decor services, we provide quality solutions that last long. All our interior design products come with an affordable cost and a 10-year warranty.",
+    },
+    {
+      id: 4,
+      icon: <LuFactory size={36} />,
+      title: "Own Factory Materials",
+      desc: "Every material for the interior designs that we use is from our manufacturing unit, so we are cost-effective and 100% customizable.",
+    },
+    {
+      id: 5,
+      icon: <LuUsers size={36} />,
+      title: "4530+ Happy Customers",
+      desc: "Save your time and ensure your project is in good hands! We have successfully completed over 4,530 luxury villas and commercial projects.",
+    },
+    {
+      id: 6,
+      icon: <LuHeartHandshake size={36} />,
+      title: "Lifetime Service Support",
+      desc: "Bizzoppo Interiors provide luxurious villa makeover and trendy commercial fit-out with lifetime service support and reliable design ideas.",
+    },
+  ];
+
+  // Hover-slide services
+  const hoverServices = [
+    {
+      id: "residential",
+      title: "Residential",
+      desc: "Our home interior designers in Chennai craft elegant and practical living spaces, including bedrooms, kitchens, and living rooms, tailored to your style and needs.",
+      image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "commercial",
+      title: "Commercial",
+      desc: "We specialize in creating modern, efficient commercial interiors for retail outlets, clinics, and salons that boost customer experience and brand appeal.",
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: "corporate",
+      title: "Corporate",
+      desc: "Our corporate interior design solutions enhance office productivity with smart space planning, stylish workstations, and collaborative meeting areas.",
+      image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80",
+    },
+  ];
+
+  // Pricing packages
+  const pricingPackages = [
+    {
+      id: "essential",
+      badge: "Best Value",
+      title: "Essential Package",
+      desc: "Core woodworks and modular templates for a standard 2BHK/3BHK.",
+      price: "4.50",
+      unit: "Lakhs onwards",
+      features: [
+        "Modular Kitchen (Laminate Finish)",
+        "Master Bedroom Wardrobe (Hinged)",
+        "Living Room TV Unit",
+        "Estimated Timeline: 35 Days",
+        "Material: Premium Marine Ply",
+        "5 Years Service Warranty",
+      ],
+      isFeatured: false,
+    },
+    {
+      id: "premium",
+      badge: "Most Popular",
+      title: "Premium Package",
+      desc: "Upgraded designs with glossy options and customized modular fittings.",
+      price: "7.85",
+      unit: "Lakhs onwards",
+      features: [
+        "Modular Kitchen (Acrylic Finish)",
+        "Master & Guest Bedroom Wardrobes (Sliding)",
+        "Living Room TV Unit & Shoe Rack",
+        "Estimated Timeline: 45 Days",
+        "Material: Water-Resistant Ply & MDF",
+        "10 Years Extended Warranty",
+      ],
+      isFeatured: true,
+    },
+    {
+      id: "luxury",
+      badge: "Elite Choice",
+      title: "Luxury Royale",
+      desc: "High-end bespoke interiors with premium textures and materials.",
+      price: "12.40",
+      unit: "Lakhs onwards",
+      features: [
+        "Bespoke Kitchen (Anti-fingerprint Matte/Glass)",
+        "Custom Wardrobes with Profile Lighting",
+        "Premium TV Unit, Paneling, & False Ceiling",
+        "Estimated Timeline: 60 Days",
+        "Material: High-Grade MDF & Acrylic",
+        "10 Years Warranty & Lifetime Support",
+      ],
+      isFeatured: false,
+    },
+  ];
+
+  // Portfolio items
+  const portfolioItems = [
+    {
+      id: 1,
+      title: "Compact Modular Kitchen",
+      tag: "Budget Kitchen — ₹1.2L",
+      image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: 2,
+      title: "Modern Sliding Wardrobe",
+      tag: "Wardrobe — ₹85K",
+      image: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: 3,
+      title: "Gold-Beige Accent TV Unit",
+      tag: "TV Lounge — ₹60K",
+      image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      id: 4,
+      title: "Minimalist Dining Alcove",
+      tag: "Dining Space — ₹90K",
+      image: "https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=800&q=80",
+    },
+  ];
+
+  // Form submission success states
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormSubmitted(true);
+  };
+
+  return (
+    <div className="app-wrapper">
+      <div className="app-canvas" style={{ backgroundColor: "var(--primary-color)" }}>
+        <Navbar />
+
+        <main className="flex-grow-1 services-page-container">
+          {/* Services Hero */}
+          <section className="services-hero">
+            <div className="services-hero-pattern" />
+            <div className="container text-center text-lg-start position-relative" style={{ zIndex: 2 }}>
+              <div className="row justify-content-center justify-content-lg-start">
+                <div className="col-12 col-lg-8 hero-content">
+                  <InView className="reveal-up" threshold={0.1}>
+                    <p className="services-hero-subtitle">Premium Interior Services & Pricing for Every Home</p>
+                    <h1 className="services-hero-title">
+                      Services & <span>Pricing Guide</span>
+                    </h1>
+                    <p className="services-hero-copy">
+                      Explore our service offerings for interiors, modular kitchens, false ceilings, painting, and consultation with transparent pricing plans and expert delivery.
+                    </p>
+                    <button
+                      onClick={() => window.dispatchEvent(new CustomEvent("open-consultation-popup"))}
+                      className="services-hero-cta"
+                      suppressHydrationWarning
+                    >
+                      Get Free Estimate
+                    </button>
+                  </InView>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Submenu navigation bar */}
+          <div className="services-submenu-bar">
+            <div className="services-submenu-container">
+              <button onClick={() => scrollToAnchor("why-us")} className="services-submenu-link">
+                Why Us
+              </button>
+              <button onClick={() => scrollToAnchor("services")} className="services-submenu-link">
+                Services
+              </button>
+              <button onClick={() => scrollToAnchor("pricing")} className="services-submenu-link">
+                Pricing
+              </button>
+              <button onClick={() => scrollToAnchor("portfolio")} className="services-submenu-link">
+                Portfolio
+              </button>
+              <button onClick={() => scrollToAnchor("estimation")} className="services-submenu-link">
+                Enquire
+              </button>
+            </div>
+          </div>
+
+          {/* Section: Best Interior Designer in Chennai (Why Choose Us) */}
+          <section id="why-us" className="services-section">
+            <div className="container-fluid px-md-5" style={{ maxWidth: "1600px" }}>
+              <InView className="reveal-up" threshold={0.1}>
+                <h2 className="services-section-title">Best Interior Designer in Chennai</h2>
+                <span className="services-section-subtitle">Why Choose Us?</span>
+              </InView>
+
+              <div className="why-choose-grid">
+                {whyChooseUsData.map((card, idx) => (
+                  <InView
+                    key={card.id}
+                    className="why-choose-card reveal-up"
+                    style={{ transitionDelay: `${idx * 0.08}s` }}
+                    threshold={0.1}
+                  >
+                    <div className="why-choose-icon">{card.icon}</div>
+                    <h3 className="why-choose-title">{card.title}</h3>
+                    <p className="why-choose-desc">{card.desc}</p>
+                  </InView>
+                ))}
+              </div>
+
+              <div className="services-cta-wrap">
+                <button onClick={() => scrollToAnchor("estimation")} className="services-primary-btn">
+                  Get Free Estimation <LuArrowRight size={16} />
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* Section: Our Interior Design Services */}
+          <section id="services" className="services-section" style={{ backgroundColor: "rgba(15, 32, 24, 0.03)" }}>
+            <div className="container-fluid px-md-5" style={{ maxWidth: "1600px" }}>
+              <InView className="reveal-up" threshold={0.1}>
+                <h2 className="services-section-title">Our Interior Design Services</h2>
+                <span className="services-section-subtitle">Spaces Designed for Elevated Styles</span>
+              </InView>
+
+              <div className="services-hover-grid">
+                {hoverServices.map((srv, idx) => (
+                  <InView
+                    key={srv.id}
+                    className="services-hover-card reveal-up"
+                    style={{ transitionDelay: `${idx * 0.1}s` }}
+                    threshold={0.1}
+                  >
+                    <div className="services-hover-img">
+                      <Image
+                        src={srv.image}
+                        alt={srv.title}
+                        fill
+                        sizes="(max-width: 992px) 100vw, 33vw"
+                        className="object-fit-cover"
+                      />
+                    </div>
+                    <div className="services-hover-overlay" />
+                    <div className="services-hover-content">
+                      <h3 className="services-hover-title">{srv.title}</h3>
+                      <p className="services-hover-desc">{srv.desc}</p>
+                    </div>
+                  </InView>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Section: Home Interiors Pricing Packages */}
+          <section id="pricing" className="services-section">
+            <div className="container-fluid px-md-5" style={{ maxWidth: "1600px" }}>
+              <InView className="reveal-up" threshold={0.1}>
+                <h2 className="services-section-title">Home Interiors Pricing Packages</h2>
+                <span className="services-section-subtitle">Affordable Bespoke Packages For You</span>
+              </InView>
+
+              <div className="pricing-grid">
+                {pricingPackages.map((pkg, idx) => (
+                  <InView
+                    key={pkg.id}
+                    className={`pricing-card ${pkg.isFeatured ? "featured" : ""} reveal-up`}
+                    style={{ transitionDelay: `${idx * 0.1}s` }}
+                    threshold={0.1}
+                  >
+                    <div className="pricing-header">
+                      {pkg.isFeatured && <span className="pricing-badge">{pkg.badge}</span>}
+                      <h3 className="pricing-title">{pkg.title}</h3>
+                      <p className="pricing-desc">{pkg.desc}</p>
+                      <div className="pricing-amount-group">
+                        <span className="pricing-currency">₹</span>
+                        <span className="pricing-val">{pkg.price}</span>
+                        <span className="pricing-unit">{pkg.unit}</span>
+                      </div>
+                    </div>
+                    <div className="pricing-body">
+                      <span className="pricing-features-title">What&apos;s Included</span>
+                      <ul className="pricing-features-list">
+                        {pkg.features.map((feat, fIdx) => (
+                          <li key={fIdx} className="pricing-feature-item">
+                            <LuCheck size={16} className="pricing-feature-icon" />
+                            <span>{feat}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="pricing-footer">
+                      <button onClick={() => scrollToAnchor("estimation")} className="pricing-select-btn">
+                        Get Estimate
+                      </button>
+                    </div>
+                  </InView>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Section: low budget interior designers in chennai - Our Latest Portfolio */}
+          <section id="portfolio" className="services-section" style={{ backgroundColor: "rgba(15, 32, 24, 0.03)" }}>
+            <div className="container-fluid px-md-5" style={{ maxWidth: "1600px" }}>
+              <InView className="reveal-up" threshold={0.1}>
+                <h2 className="services-section-title">Low Budget Interior Designers - Our Latest Portfolio</h2>
+                <span className="services-section-subtitle">High Quality Works Within Reach</span>
+              </InView>
+
+              <div className="portfolio-grid">
+                {portfolioItems.map((item, idx) => (
+                  <InView
+                    key={item.id}
+                    className="portfolio-card reveal-up"
+                    style={{ transitionDelay: `${idx * 0.08}s` }}
+                    threshold={0.1}
+                  >
+                    <div className="portfolio-img">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, 25vw"
+                        className="object-fit-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="portfolio-overlay">
+                      <span className="portfolio-tag">{item.tag}</span>
+                      <h3 className="portfolio-title">{item.title}</h3>
+                    </div>
+                  </InView>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Section: Contact / Estimation Form */}
+          <section id="estimation" className="estimation-section">
+            <div className="container">
+              <div className="estimation-card">
+                <InView className="reveal-up" threshold={0.1}>
+                  <h2 
+                    className="text-center mb-2 fw-bold" 
+                    style={{ 
+                      fontFamily: "var(--font-cormorant), serif",
+                      color: "var(--text-on-dark-title)",
+                      fontSize: "clamp(2rem, 3.5vw, 2.75rem)"
+                    }}
+                  >
+                    Contact Our Designers!
+                  </h2>
+                  <p 
+                    className="text-center mb-5" 
+                    style={{ 
+                      color: "var(--text-on-dark-muted)",
+                      fontSize: "0.9rem"
+                    }}
+                  >
+                    Get a Free Site Evaluation and Consultation Today
+                  </p>
+                </InView>
+
+                {formSubmitted ? (
+                  <div className="text-center py-5" style={{ color: "var(--primary-color)" }}>
+                    <h3 className="fw-bold mb-3" style={{ fontFamily: "var(--font-cormorant), serif", fontSize: "2rem" }}>
+                      Thank You!
+                    </h3>
+                    <p style={{ color: "var(--text-on-dark-body)", fontSize: "1rem" }}>
+                      Our design consultant will contact you shortly with your free estimation report.
+                    </p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="estimation-form-grid">
+                    <div className="estimation-input-group">
+                      <label className="estimation-label">Full Name</label>
+                      <input 
+                        type="text" 
+                        required 
+                        className="estimation-input" 
+                        placeholder="e.g. John Doe"
+                      />
+                    </div>
+
+                    <div className="estimation-input-group">
+                      <label className="estimation-label">Email Address</label>
+                      <input 
+                        type="email" 
+                        required 
+                        className="estimation-input" 
+                        placeholder="e.g. john@example.com"
+                      />
+                    </div>
+
+                    <div className="estimation-input-group">
+                      <label className="estimation-label">Mobile Number</label>
+                      <input 
+                        type="tel" 
+                        required 
+                        className="estimation-input" 
+                        placeholder="e.g. +91 98765 43210"
+                      />
+                    </div>
+
+                    <div className="estimation-input-group">
+                      <label className="estimation-label">Property Location</label>
+                      <input 
+                        type="text" 
+                        required 
+                        className="estimation-input" 
+                        placeholder="e.g. Chennai, Adyar"
+                      />
+                    </div>
+
+                    <div className="col-12 text-center mt-3">
+                      <button type="submit" className="estimation-submit-btn">
+                        Get Free Estimation
+                      </button>
+                    </div>
+                  </form>
+                )}
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <Footer />
+      </div>
+    </div>
+  );
+}

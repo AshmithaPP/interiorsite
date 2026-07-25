@@ -1,0 +1,184 @@
+/* Progress Timeline Styles (Replicating DesignCafe image) */
+.process-section {
+  background-color: rgba(217, 203, 164, 0.08); /* Reverted background to brand gold tint */
+  padding: 4rem 1.5rem;
+}
+
+.process-timeline-container {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto 3.5rem auto;
+  padding: 0 1.5rem;
+}
+
+.process-timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 2.5rem;
+  right: 2.5rem;
+  height: 2px;
+  background-color: rgba(15, 32, 24, 0.15);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.process-timeline-steps {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.process-timeline-step-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: rgba(15, 32, 24, 0.08);
+  color: rgba(15, 32, 24, 0.4);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.process-timeline-step-btn.active {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(15, 32, 24, 0.12);
+}
+
+.process-timeline-step-btn:hover:not(.active) {
+  background-color: rgba(15, 32, 24, 0.15);
+}
+
+/* Slider Box & Arrows */
+.process-slider-wrapper {
+  position: relative;
+  padding: 0 4.5rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.slider-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(15, 32, 24, 0.1);
+  background-color: #ffffff;
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.slider-arrow-btn:hover:not(:disabled) {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border-color: var(--secondary-color);
+  box-shadow: 0 4px 12px rgba(15, 32, 24, 0.15);
+}
+
+.slider-arrow-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.slider-arrow-btn.prev {
+  left: 0;
+}
+
+.slider-arrow-btn.next {
+  right: 0;
+}
+
+.process-image-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(15, 32, 24, 0.08);
+  box-shadow: 0 20px 40px rgba(15, 32, 24, 0.12);
+  margin: 0 auto;
+}
+
+.process-step-photo {
+  transition: transform 0.5s ease;
+}
+
+.process-image-card:hover .process-step-photo {
+  transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+  .process-slider-wrapper {
+    padding: 0 0.5rem;
+  }
+  
+  .slider-arrow-btn {
+    display: none; /* Hide side arrows on mobile layout */
+  }
+
+  .process-image-card {
+    max-width: 340px;
+    margin-top: 1.5rem;
+  }
+
+  .process-copy {
+    text-align: center;
+  }
+}
+
+/* CTA button with slide-fill transition */
+.process-cta-btn {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: 1.5px solid var(--primary-color);
+  padding: 0.85rem 2.25rem;
+  border-radius: 6px;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 4px 12px rgba(15, 32, 24, 0.15);
+  transition: color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.4s ease;
+}
+
+.process-cta-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--primary-color);
+  z-index: -1;
+  transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.process-cta-btn:hover {
+  color: var(--secondary-color);
+  border-color: var(--primary-color);
+}
+
+.process-cta-btn:hover::before {
+  width: 100%;
+}

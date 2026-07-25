@@ -1,66 +1,62 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import WhoWeAre from "@/components/WhoWeAre";
+import PackageOffers from "@/components/PackageOffers";
+import DesignProcess from "@/components/DesignProcess";
+import BetterHome from "@/components/BetterHome";
+import SatisfiedCustomers from "@/components/SatisfiedCustomers";
+import BlogSection from "@/components/BlogSection";
+import Footer from "@/components/Footer";
+import FaqAccordion from "@/components/FaqAccordion";
+
+const faqs = [
+  {
+    q: "Why should I choose Kingsford as my interior designer in Chennai?",
+    a: "Kingsford offers customized designs, premium materials, expert craftsmanship, and timely project completion for all interior projects.",
+  },
+  {
+    q: "Are you among the best interior designers in Chennai?",
+    a: "Yes, Kingsford is known for delivering high-quality residential interior solutions tailored to customer requirements.",
+  },
+  {
+    q: "Do you provide complete home interiors in Chennai?",
+    a: "Yes, we offer complete interior solutions including living rooms, bedrooms, kitchens, dining areas, and storage solutions.",
+  },
+  {
+    q: "How much time does a home interior project take?",
+    a: "The timeline depends on the project scope, design complexity, and customization requirements. We provide clear project schedules before starting.",
+  },
+  {
+    q: "Why choose Kingsford as your home interior designers in Chennai?",
+    a: "Our experienced team focuses on quality, functionality, customer satisfaction, and personalized design solutions that add value to your home.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="app-wrapper">
+      <div className="app-canvas">
+        <Navbar />
+        <main>
+          <Hero />
+          <WhoWeAre />
+          <PackageOffers />
+          <DesignProcess />
+          <BetterHome />
+          <SatisfiedCustomers />
+          <BlogSection />
+          <section style={{ backgroundColor: "var(--primary-color)", borderTop: "1px solid rgba(217, 203, 164, 0.15)" }}>
+            <div className="container-fluid px-3 px-md-5 py-5" style={{ maxWidth: "1600px" }}>
+              <FaqAccordion 
+                items={faqs} 
+                title="Frequently Asked Questions" 
+                subtitle="Answers to common questions about our interior design services and home transformation process." 
+              />
+            </div>
+          </section>
+          <Footer />
+        </main>
+      </div>
     </div>
   );
 }

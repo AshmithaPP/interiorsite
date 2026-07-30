@@ -396,7 +396,7 @@ export default function ModularClient() {
                 <div className="col-6 col-lg-3">
                   <InView className="reveal-up" style={{ transitionDelay: "0.08s" }} threshold={0.1}>
                     <div className="modular-stat-card text-center p-4" style={{ backgroundColor: "var(--fourth-color)", borderRadius: "1.25rem", border: "1px solid rgba(255, 255, 255, 0.05)" }}>
-                      <div className="modular-stat-number fw-bold text-white mb-2" style={{ fontSize: "2rem" }}>1000+</div>
+                      <div className="modular-stat-number fw-bold text-white mb-2" style={{ fontSize: "2rem" }}>100+</div>
                       <div className="modular-stat-label text-white-50 small">Happy Clients</div>
                     </div>
                   </InView>

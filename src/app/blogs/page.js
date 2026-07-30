@@ -303,7 +303,7 @@ export default function BlogsPage() {
           <section 
             className="d-flex align-items-center position-relative overflow-hidden" 
             style={{ 
-              background: "linear-gradient(180deg, rgba(11, 26, 20, 0.88), rgba(11, 26, 20, 0.65)), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1600&q=80') no-repeat center center / cover",
+              background: "linear-gradient(180deg, rgba(11, 26, 20, 0.88), rgba(11, 26, 20, 0.65)), url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80') no-repeat center center / cover",
               minHeight: "100vh",
               borderBottom: "1px solid rgba(217, 203, 164, 0.15)",
               padding: "6rem 1.5rem"

@@ -19,7 +19,12 @@ import {
   LuCalendar, 
   LuChevronRight,
   LuCompass,
-  LuWrench
+  LuWrench,
+  LuPalette,
+  LuLightbulb,
+  LuThermometer,
+  LuEyeOff,
+  LuVolumeX
 } from "react-icons/lu";
 import "./false-ceiling.css";
 
@@ -40,7 +45,7 @@ export default function FalseCeilingClient() {
     },
     {
       id: "pvc",
-      title: "PVC False Ceiling",
+      title: "stretch false ceiling ",
       desc: "A durable and low-maintenance solution suitable for kitchens, bathrooms, and commercial spaces.",
       image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
     },
@@ -69,22 +74,27 @@ export default function FalseCeilingClient() {
     {
       title: "Enhanced Interior Appearance",
       desc: "Creates a modern and elegant look for your home or office.",
+      icon: <LuPalette size={28} />,
     },
     {
       title: "Better Lighting Effects",
       desc: "Supports LED lights, cove lighting, spotlights, and decorative lighting arrangements.",
+      icon: <LuLightbulb size={28} />,
     },
     {
       title: "Improved Thermal Insulation",
       desc: "Helps reduce heat and improves indoor comfort.",
+      icon: <LuThermometer size={28} />,
     },
     {
       title: "Conceals Wiring and Ducts",
       desc: "Hides electrical wiring, pipes, and air-conditioning ducts for a clean appearance.",
+      icon: <LuEyeOff size={28} />,
     },
     {
       title: "Noise Reduction",
       desc: "Improves acoustic performance and reduces sound transmission.",
+      icon: <LuVolumeX size={28} />,
     },
   ];
 
@@ -331,17 +341,17 @@ export default function FalseCeilingClient() {
                 </InView>
               </div>
 
-              <div className="row g-4">
+              <div className="row g-4 justify-content-center">
                 {benefits.map((benefit, idx) => (
                   <div key={idx} className="col-12 col-md-6 col-lg-4">
                     <InView
-                      className="reveal-up h-100"
-                      style={{ transitionDelay: `${idx * 0.08}s` }}
-                      threshold={0.1}
+                       className="reveal-up h-100"
+                       style={{ transitionDelay: `${idx * 0.08}s` }}
+                       threshold={0.1}
                     >
                       <div className="ceiling-dark-card h-100">
                         <div className="ceiling-card-icon">
-                          <LuCheck size={28} />
+                          {benefit.icon}
                         </div>
                         <h3 className="ceiling-card-title">{benefit.title}</h3>
                         <p className="ceiling-card-desc">{benefit.desc}</p>
@@ -405,7 +415,7 @@ export default function FalseCeilingClient() {
                 <div className="col-6 col-md-3">
                   <InView className="reveal-up h-100" style={{ transitionDelay: "0.08s" }} threshold={0.1}>
                     <div className="ceiling-stat-card h-100 d-flex flex-column justify-content-center">
-                      <div className="ceiling-stat-number">1000+</div>
+                      <div className="ceiling-stat-number">100+</div>
                       <div className="ceiling-stat-label">Happy Clients</div>
                     </div>
                   </InView>

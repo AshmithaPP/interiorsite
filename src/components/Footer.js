@@ -231,17 +231,17 @@ export default function Footer() {
                 ></iframe>
               </div>
               <div>
-                <a href="tel:+919876543210" className="footer-contact-item">
+                <a href="tel:+919789888028" className="footer-contact-item">
                   <LuPhone size={16} />
-                  <span>+91 98765 43210</span>
+                  <span>+91 97898 88028</span>
                 </a>
-                <a href="mailto:hello@kingsford.in" className="footer-contact-item">
+                <a href="mailto:Kingsfordgroups@gmail.com" className="footer-contact-item">
                   <LuMail size={16} />
-                  <span>hello@kingsford.in</span>
+                  <span>Kingsfordgroups@gmail.com</span>
                 </a>
                 <div className="footer-contact-item">
                   <LuMapPin size={16} />
-                  <span>DLF Cyber City, Tower 9, Gurugram, Haryana 122002</span>
+                  <span>No 29, Ground Floor, Grace Hospital, Balavinayagar Kovil Street Shastri Nagar, Pattabiram, Chennai-600072, Tamil Nadu</span>
                 </div>
               </div>
             </div>

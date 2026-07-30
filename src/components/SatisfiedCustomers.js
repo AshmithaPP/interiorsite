@@ -180,7 +180,7 @@ export default function SatisfiedCustomers() {
               textTransform: "uppercase",
             }}
           >
-            <span style={{ color: "var(--secondary-color)" }}>14000+</span> SATISFIED CUSTOMERS
+            <span style={{ color: "var(--secondary-color)" }}>100+</span> Happy Customers Served
           </h2>
 
           {/* Customer cards track */}

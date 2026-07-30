@@ -18,7 +18,7 @@ export default function WhyChooseKingsford({ items }) {
       icon: LuAward
     },
     {
-      title: "1000+ Happy Clients",
+      title: "100+ Happy Clients",
       desc: "A proven history of trust and visual excellence with homeowners throughout Chennai.",
       icon: LuUsers
     },

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import InView from "./InView";
 import "./DesignProcess.css";
@@ -21,13 +21,13 @@ export default function DesignProcess() {
     },
     {
       step: 3,
-      title: "Material & Finish Selection",
+      title: "Material Selection",
       desc: "Touch and feel premium surface finishes. Choose from a rich, curated selection of laminates, modular boards, glass finishes, and textures to define your style.",
       image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80"
     },
     {
       step: 4,
-      title: "Precision Manufacturing",
+      title: "Precision Manufacture",
       desc: "Flawless modular panels engineered under strict QA parameters. We use advanced computer-numeric CNC machines at our facility to guarantee exact margins and quality standards.",
       image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
     },
@@ -45,108 +45,95 @@ export default function DesignProcess() {
     }
   ];
 
-  const [activeStep, setActiveStep] = useState(1);
+  const [activeStep, setActiveStep] = React.useState(1);
   const currentProcess = processSteps.find((item) => item.step === activeStep);
 
-  const handlePrevStep = () => {
-    setActiveStep((prev) => Math.max(1, prev - 1));
-  };
-
-  const handleNextStep = () => {
-    setActiveStep((prev) => Math.min(processSteps.length, prev + 1));
-  };
-
   return (
-    <section className="process-section" style={{ paddingTop: "6rem", paddingBottom: "6rem" }}>
+    <section className="process-section" style={{ paddingTop: "4rem", paddingBottom: "4rem" }}>
       <div className="container" style={{ maxWidth: "1100px" }}>
         <div className="process-header text-center mb-4">
           <InView className="reveal-up" threshold={0.1}>
-            <h2 className="process-title fw-bold mb-0" style={{ fontFamily: "var(--font-cormorant), serif", color: "var(--text-title)", fontSize: "clamp(2rem, 3.5vw, 3rem)" }}>
-              From Design to Move-In
+            <h2 className="process-title fw-bold mb-2" style={{ fontFamily: "var(--font-cormorant), serif", color: "var(--text-title)", fontSize: "clamp(2rem, 3.5vw, 2.75rem)", lineHeight: "1.2" }}>
+              Our Design Process Roadmap
             </h2>
+            <p className="process-subtitle text-muted mx-auto" style={{ maxWidth: "600px", fontSize: "0.9rem", lineHeight: "1.6" }}>
+              Click each step on the roadmap to preview our detailed process.
+            </p>
           </InView>
         </div>
 
-        {/* Progress Timeline Header */}
-        <div className="process-timeline-container mb-5">
-          <div className="process-timeline-line" />
-          <div className="process-timeline-steps">
-            {processSteps.map((item) => (
-              <button
-                key={item.step}
-                type="button"
-                className={`process-timeline-step-btn ${item.step === activeStep ? "active" : ""}`}
-                onClick={() => setActiveStep(item.step)}
-              >
-                {item.step}
-              </button>
-            ))}
+        {/* Horizontal Winding Roadmap Timeline (Desktop) */}
+        <div className="roadmap-horizontal-wrapper my-5 d-none d-lg-flex">
+          <div className="roadmap-horizontal-line" />
+          <div className="roadmap-horizontal-steps">
+            {processSteps.map((item) => {
+              const isActive = item.step === activeStep;
+              return (
+                <button
+                  key={item.step}
+                  type="button"
+                  className={`roadmap-horizontal-step-btn ${isActive ? "active" : ""}`}
+                  onClick={() => setActiveStep(item.step)}
+                >
+                  <div className="map-pin">
+                    <span>{item.step}</span>
+                  </div>
+                  <span className="roadmap-step-title">{item.title}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        {/* Slider Content Area with Arrows */}
-        <div className="process-slider-wrapper position-relative">
-          {/* Prev Arrow */}
-          <button
-            type="button"
-            className="slider-arrow-btn prev"
-            onClick={handlePrevStep}
-            disabled={activeStep === 1}
-            aria-label="Previous step"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </button>
+        {/* Mobile Timeline Pills */}
+        <div className="roadmap-mobile-steps d-lg-none mb-4">
+          <div className="d-flex flex-wrap justify-content-center gap-2">
+            {processSteps.map((item) => {
+              const isActive = item.step === activeStep;
+              return (
+                <button
+                  key={item.step}
+                  type="button"
+                  className={`mobile-step-pill ${isActive ? "active" : ""}`}
+                  onClick={() => setActiveStep(item.step)}
+                >
+                  {item.step}. {item.title}
+                </button>
+              );
+            })}
+          </div>
+        </div>
 
-          {/* Content Row */}
-          <div className="row align-items-center gy-4 justify-content-between">
-            <div className="col-12 col-md-6 col-lg-5">
-              <InView className="reveal-up" threshold={0.1}>
-                <div className="process-copy">
-                  <h3 className="process-copy-title fw-bold mb-3" style={{ fontFamily: "var(--font-inter), sans-serif", fontSize: "clamp(1.5rem, 3vw, 2.2rem)", color: "var(--text-title)" }}>
-                    {currentProcess.title}
-                  </h3>
-                  <p className="process-copy-text text-muted" style={{ fontSize: "0.95rem", lineHeight: "1.7" }}>
-                    {currentProcess.desc}
-                  </p>
-                </div>
-              </InView>
-            </div>
-
-            <div className="col-12 col-md-6 col-lg-6 text-center">
-              <InView className="reveal-up" style={{ transitionDelay: "0.08s" }} threshold={0.1}>
-                <div className="process-image-card shadow position-relative overflow-hidden w-100" style={{ aspectRatio: "4/3", borderRadius: "1.5rem" }}>
+        {/* Selected Step Detailed Content Panel */}
+        <div className="roadmap-details-panel">
+          <InView className="reveal-up" threshold={0.15} key={activeStep}>
+            <div className="row gy-4 align-items-center">
+              <div className="col-12 col-md-5">
+                <div className="roadmap-panel-image">
                   <Image
                     src={currentProcess.image}
                     alt={currentProcess.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, 500px"
-                    className="object-fit-cover process-step-photo"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-fit-cover"
                     priority
                   />
                 </div>
-              </InView>
+              </div>
+              <div className="col-12 col-md-7">
+                <div className="roadmap-panel-body">
+                  <span className="roadmap-step-badge">Phase 0{currentProcess.step}</span>
+                  <h3 className="roadmap-panel-title">{currentProcess.title}</h3>
+                  <p className="roadmap-panel-desc">{currentProcess.desc}</p>
+                </div>
+              </div>
             </div>
-          </div>
-
-          {/* Next Arrow */}
-          <button
-            type="button"
-            className="slider-arrow-btn next"
-            onClick={handleNextStep}
-            disabled={activeStep === processSteps.length}
-            aria-label="Next step"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-          </button>
+          </InView>
         </div>
 
         {/* Centered CTA Button */}
         <div className="text-center mt-5">
-          <InView className="reveal-up" style={{ transitionDelay: "0.15s" }} threshold={0.1}>
+          <InView className="reveal-up" style={{ transitionDelay: "0.1s" }} threshold={0.1}>
             <button
               onClick={() => window.dispatchEvent(new CustomEvent("open-consultation-popup"))}
               className="process-cta-btn"

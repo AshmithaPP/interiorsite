@@ -395,7 +395,7 @@ export default function PaintingClient() {
                 <div className="col-6 col-md-3">
                   <InView className="reveal-up h-100" style={{ transitionDelay: "0.08s" }} threshold={0.1}>
                     <div className="painting-stat-card h-100 d-flex flex-column justify-content-center">
-                      <div className="painting-stat-number">1000+</div>
+                      <div className="painting-stat-number">100+</div>
                       <div className="painting-stat-label">Happy Clients</div>
                     </div>
                   </InView>

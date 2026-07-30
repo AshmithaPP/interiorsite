@@ -148,7 +148,7 @@ export default function AboutPage() {
           <section 
             className="d-flex align-items-center position-relative overflow-hidden" 
             style={{ 
-              background: "linear-gradient(180deg, rgba(11, 26, 20, 0.88), rgba(11, 26, 20, 0.65)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80') no-repeat center center / cover",
+              background: "linear-gradient(180deg, rgba(11, 26, 20, 0.88), rgba(11, 26, 20, 0.65)), url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1600&q=80') no-repeat center center / cover",
               minHeight: "100vh",
               borderBottom: "1px solid rgba(217, 203, 164, 0.15)",
               padding: "6rem 1.5rem"
@@ -411,7 +411,7 @@ export default function AboutPage() {
                     bgImage: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=400&q=80"
                   },
                   {
-                    title: "Home Renovation Solutions",
+                    title: "Home Office Interiors",
                     icon: LuHammer,
                     desc: "Complete interior layout conversions from initial concept to handover.",
                     bgImage: "https://images.unsplash.com/photo-1505797149-43b0069ec26b?auto=format&fit=crop&w=400&q=80"
@@ -718,10 +718,10 @@ export default function AboutPage() {
 
               <div className="row g-4 text-center justify-content-center">
                 {[
-                  { title: "ECR Beach Villas", desc: "Coastal aesthetics & custom cabinetry", tag: "ECR" },
-                  { title: "OMR Luxury Apartments", desc: "Compact layouts & space-saving modular kitchens", tag: "OMR" },
-                  { title: "Adyar Penthouses", desc: "Luxury false ceilings & premium wardrobes", tag: "Adyar" },
-                  { title: "Anna Nagar Residences", desc: "Complete home architectural renewals", tag: "Anna Nagar" }
+                  { title: "Luxury Villas", desc: "Elegant interiors crafted for premium villa living.", tag: "ECR" },
+                  { title: "Modern Apartments", desc: " Smart, stylish interiors designed for contemporary homes.", tag: "OMR" },
+                  { title: "Premium Penthouses", desc: "Sophisticated interiors with luxurious finishes.", tag: "Adyar" },
+                  { title: "Independent Homes", desc: " Customized interior solutions for spacious family homes.", tag: "Anna Nagar" }
                 ].map((client, idx) => (
                   <div key={idx} className="col-12 col-sm-6 col-lg-3">
                     <InView 
@@ -792,7 +792,8 @@ export default function AboutPage() {
                     fontWeight: 600
                   }}
                 >
-                  Let&apos;s Build Your Dream Home
+                 Transform Your Home with Kingsford
+
                 </h2>
                 <div className="aesthetic-divider" style={{ backgroundColor: "rgba(15, 32, 24, 0.15)" }} />
                 <p 
@@ -805,7 +806,7 @@ export default function AboutPage() {
                     opacity: 0.9
                   }}
                 >
-                  Whether you are planning a new home, renovating an existing space, or looking for complete interior solutions, Kingsford is here to bring your vision to life.
+From new home interiors to complete renovations, we create elegant, functional spaces tailored to your lifestyle.
                 </p>
                 <button 
                   onClick={() => {

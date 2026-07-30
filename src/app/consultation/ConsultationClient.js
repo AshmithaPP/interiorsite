@@ -49,7 +49,7 @@ export default function ConsultationClient() {
       icon: LuAward
     },
     {
-      title: "1000+ Happy Clients",
+      title: "100+ Happy Clients",
       desc: "Over 1,000 Chennai homeowners trust our designers for quality and execution.",
       icon: LuUsers
     },
@@ -148,74 +148,58 @@ export default function ConsultationClient() {
 
         <main className="flex-grow-1" style={{ paddingTop: "5.5rem" }}>
           
-          <section 
-            className="d-flex align-items-center position-relative overflow-hidden" 
-            style={{ 
-              backgroundColor: "var(--secondary-color)",
-              minHeight: "100vh",
-              borderBottom: "1px solid rgba(217, 203, 164, 0.15)",
-              padding: "6rem 1.5rem"
-            }}
+          {/* Main Hero & Form Split Section using the Reusable Component */}
+          <BookConsultation
+            formTitle="Get Free Consultation"
+            formSubtitle="Fill out the contact form below and our team will get back to you as soon as possible."
+            backgroundImage="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1600&q=80"
           >
-            <div className="hero-grid-pattern" />
-            <div 
-              className="position-absolute top-0 start-0 w-100 h-100" 
-              style={{
-                backgroundImage: "radial-gradient(circle at 80% 20%, rgba(217, 203, 164, 0.08) 0%, transparent 60%)"
-              }}
-            />
-            <div className="container py-5 position-relative" style={{ zIndex: 2 }}>
-              <div className="row">
-                <div className="col-lg-9">
-                  <InView className="reveal-up" threshold={0.1}>
-                    <span 
-                      style={{ 
-                        fontFamily: "var(--font-inter), sans-serif",
-                        fontSize: "0.8rem",
-                        fontWeight: 700,
-                        letterSpacing: "0.25em",
-                        color: "var(--primary-color)",
-                        textTransform: "uppercase"
-                      }}
-                    >
-                      Bespoke Renders & Advice
-                    </span>
-                    <h1 
-                      className="mt-3 mb-4 fw-bold"
-                      style={{ 
-                        fontFamily: "var(--font-cormorant), serif", 
-                        fontSize: "clamp(2.3rem, 6vw, 4.2rem)", 
-                        color: "var(--text-on-dark-title)",
-                        lineHeight: "1.1"
-                      }}
-                    >
-                      Interior Design Consultation Services
-                    </h1>
-                    <div 
-                      style={{
-                        width: "80px",
-                        height: "2px",
-                        backgroundColor: "var(--primary-color)",
-                        margin: "1.5rem 0",
-                      }}
-                    />
-                    <p 
-                      style={{ 
-                        fontFamily: "var(--font-outfit), sans-serif", 
-                        fontSize: "1.1rem", 
-                        color: "var(--text-on-dark-body)",
-                        maxWidth: "800px",
-                        lineHeight: "1.7",
-                        letterSpacing: "0.02em"
-                      }}
-                    >
-                      Looking for expert guidance for your home interiors? Kingsford offers professional Interior Design Consultation Services to help you plan and design beautiful, functional, and stylish living spaces. Our experienced interior designers understand your requirements, budget, and preferences to provide personalized design recommendations for your home.
-                    </p>
-                  </InView>
-                </div>
-              </div>
-            </div>
-          </section>
+            {/* Custom Left Column specific to the Consultation page */}
+            <InView className="reveal-up" threshold={0.1}>
+              <span 
+                style={{ 
+                  fontFamily: "var(--font-inter), sans-serif",
+                  fontSize: "0.8rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.25em",
+                  color: "var(--primary-color)",
+                  textTransform: "uppercase"
+                }}
+              >
+                Bespoke Renders & Advice
+              </span>
+              <h1 
+                className="mt-3 mb-4 fw-bold"
+                style={{ 
+                  fontFamily: "var(--font-cormorant), serif", 
+                  fontSize: "clamp(2.3rem, 5.5vw, 3.8rem)", 
+                  color: "var(--text-on-dark-title)",
+                  lineHeight: "1.1"
+                }}
+              >
+                Interior Design Consultation Services
+              </h1>
+              <div 
+                style={{
+                  width: "80px",
+                  height: "2px",
+                  backgroundColor: "var(--primary-color)",
+                  margin: "1.5rem 0",
+                }}
+              />
+              <p 
+                className="mb-5 text-white-50"
+                style={{ 
+                  fontFamily: "var(--font-outfit), sans-serif", 
+                  fontSize: "1.05rem", 
+                  lineHeight: "1.7",
+                  maxWidth: "520px"
+                }}
+              >
+                Looking for expert guidance for your home interiors? Kingsford offers professional Interior Design Consultation Services to help you plan and design beautiful, functional, and stylish living spaces. Our experienced interior designers understand your requirements, budget, and preferences to provide personalized design recommendations for your home.
+              </p>
+            </InView>
+          </BookConsultation>
 
           {/* Consultation Services Cards */}
           <section className="py-5" style={{ backgroundColor: "var(--primary-color)" }}>

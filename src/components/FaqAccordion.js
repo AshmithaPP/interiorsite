@@ -7,7 +7,7 @@ import "./FaqAccordion.css";
 
 export default function FaqAccordion({ items, title, subtitle }) {
   const [activeFaq, setActiveFaq] = useState(null);
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
   const toggleFaq = (idx) => {
@@ -24,7 +24,7 @@ export default function FaqAccordion({ items, title, subtitle }) {
     // Replace with your actual submit logic (API call, email service, etc.)
     console.log("Form submitted:", formData);
     setSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
+    setFormData({ name: "", email: "", phone: "", message: "" });
     setTimeout(() => setSubmitted(false), 4000);
   };
 
@@ -117,6 +117,22 @@ export default function FaqAccordion({ items, title, subtitle }) {
               className="faq-form-input"
               placeholder="you@example.com"
               value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="faq-form-group">
+            <label htmlFor="faq-phone" className="faq-form-label">
+              Contact Number
+            </label>
+            <input
+              id="faq-phone"
+              type="tel"
+              name="phone"
+              className="faq-form-input"
+              placeholder="Your phone number"
+              value={formData.phone}
               onChange={handleChange}
               required
             />

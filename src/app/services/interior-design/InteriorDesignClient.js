@@ -186,7 +186,7 @@ export default function InteriorDesignClient() {
                         Best Interior Designers in Chennai
                       </h2>
                       <p className="mb-0 text-muted" style={{ fontSize: "1rem", lineHeight: "1.7" }}>
-                        Are you looking for the <strong>Best Interior Designers in Chennai</strong> to transform your dream home into a beautiful and functional living space? Kingsford specializes in creating modern, elegant, and customized interiors for apartments, villas, independent houses, and commercial spaces. With over <strong>10 years of experience</strong> and <strong>1000+ happy clients</strong>, we have built a strong reputation for delivering high-quality interior solutions that combine creativity, comfort, and functionality.
+                        Are you looking for the <strong>Best Interior Designers in Chennai</strong> to transform your dream home into a beautiful and functional living space? Kingsford specializes in creating modern, elegant, and customized interiors for apartments, villas, independent houses, and commercial spaces. With over <strong>10 years of experience</strong> and <strong>100+ happy clients</strong>, we have built a strong reputation for delivering high-quality interior solutions that combine creativity, comfort, and functionality.
                       </p>
                     </div>
                   </InView>
@@ -404,7 +404,7 @@ export default function InteriorDesignClient() {
                 <div className="col-6 col-md-3">
                   <InView className="reveal-up" style={{ transitionDelay: "0.08s" }} threshold={0.1}>
                     <div className="card p-4 border-0 text-center" style={{ backgroundColor: "var(--fourth-color)", borderRadius: "1.25rem", border: "1px solid rgba(255, 255, 255, 0.04)" }}>
-                      <div className="display-5 fw-bold mb-2" style={{ color: "var(--primary-color)", fontFamily: "var(--font-inter), sans-serif", fontVariantNumeric: "lining-nums", fontFeatureSettings: "'lnum' 1" }}>1000+</div>
+                      <div className="display-5 fw-bold mb-2" style={{ color: "var(--primary-color)", fontFamily: "var(--font-inter), sans-serif", fontVariantNumeric: "lining-nums", fontFeatureSettings: "'lnum' 1" }}>100+</div>
                       <div className="small fw-semibold text-white-50 text-uppercase" style={{ letterSpacing: "0.05em" }}>Happy Clients</div>
                     </div>
                   </InView>

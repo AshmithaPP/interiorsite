@@ -6,8 +6,8 @@ export default function Hero() {
       {/* Optimized Background Image (LCP optimization) */}
       <div className="hero-bg-wrapper">
         <Image
-          src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80"
-          alt="Warm Japandi Room"
+          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80"
+          alt="Modern Luxury Living Room"
           fill
           priority
           sizes="100vw"
@@ -26,7 +26,8 @@ export default function Hero() {
         <div className="hero-left animate-fade-in-left">
           <h1 className="hero-title">
             <span className="title-large">
-              Interior Designers in Chennai
+             Interior design consultant in chennai
+
             </span>
             <span className="title-sub">
               Kingsford | Home Interior Designers in Chennai

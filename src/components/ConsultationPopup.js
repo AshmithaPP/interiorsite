@@ -98,7 +98,7 @@ export default function ConsultationPopup() {
                   <span className="bullet-label">Years of Experience</span>
                 </div>
                 <div className="bullet-item">
-                  <span className="bullet-number">1000+</span>
+                  <span className="bullet-number">100+</span>
                   <span className="bullet-label">Happy Clients Served</span>
                 </div>
                 <div className="bullet-item">

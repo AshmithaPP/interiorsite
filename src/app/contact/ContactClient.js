@@ -66,7 +66,7 @@ export default function ContactClient() {
           <BookConsultation
             formTitle="Get Free Consultation"
             formSubtitle="Fill out the contact form below and our team will get back to you as soon as possible."
-            backgroundImage="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=80"
+            backgroundImage="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1800&q=80"
           >
             {/* Custom Left Column specific to the Contact page */}
             <InView className="reveal-up" threshold={0.1}>
@@ -111,15 +111,15 @@ export default function ContactClient() {
               <div className="d-flex flex-column gap-3 mb-4" style={{ fontFamily: "var(--font-outfit), sans-serif", fontSize: "0.95rem" }}>
                 <div className="d-flex align-items-center gap-3">
                   <LuPhone size={18} style={{ color: "var(--primary-color)" }} />
-                  <span><strong>Phone:</strong> +91 98765 43210</span>
+                  <span><strong>Phone:</strong> +91 97898 88028</span>
                 </div>
                 <div className="d-flex align-items-center gap-3">
                   <LuMail size={18} style={{ color: "var(--primary-color)" }} />
-                  <span><strong>Email:</strong> info@kingsford.in</span>
+                  <span><strong>Email:</strong> Kingsfordgroups@gmail.com</span>
                 </div>
                 <div className="d-flex align-items-center gap-3">
                   <LuMapPin size={18} style={{ color: "var(--primary-color)" }} />
-                  <span><strong>Address:</strong> 12, Khader Nawaz Khan Road, Nungambakkam, Chennai</span>
+                  <span><strong>Address:</strong> No 29, Ground Floor, Grace Hospital, Balavinayagar Kovil Street Shastri Nagar, Pattabiram, Chennai-600072, Tamil Nadu</span>
                 </div>
                 <div className="d-flex align-items-center gap-3">
                   <LuClock size={18} style={{ color: "var(--primary-color)" }} />
@@ -168,7 +168,7 @@ export default function ContactClient() {
                   Ready to transform your home or office? Contact Kingsford today for a free consultation and let our experts bring your vision to life.
                 </p>
                 <a 
-                  href="tel:+919876543210" 
+                  href="tel:+919789888028" 
                   className="btn px-4 py-3 rounded-pill" 
                   style={{ 
                     backgroundColor: "var(--primary-color)", 
@@ -179,7 +179,7 @@ export default function ContactClient() {
                     fontSize: "0.85rem"
                   }}
                 >
-                  CALL NOW: +91 98765 43210
+                  CALL NOW: +91 97898 88028
                 </a>
               </InView>
             </div>

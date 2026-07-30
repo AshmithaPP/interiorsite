@@ -69,92 +69,112 @@ export default function Navbar() {
   <span>Kingsford</span>
 </button>
         {/* DESKTOP NAV LINKS */}
-        <div className="nav-links">
-          <button onClick={() => scrollToSection("#home")} className="nav-link-btn">
-            Home
-          </button>
-          <Link href="/about" className="nav-link-btn text-decoration-none">
-            About
-          </Link>
-
-          {/* Services Dropdown */}
-          <div
-            className="nav-dropdown"
-            onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
-          >
-            <Link
-              href="/services"
-              className="nav-link-btn text-decoration-none d-flex align-items-center gap-1"
-            >
-              Services <LuChevronDown size={14} className="ms-1" />
+        {pathname !== "/promo" && (
+          <div className="nav-links">
+            <button onClick={() => scrollToSection("#home")} className="nav-link-btn">
+              Home
+            </button>
+            <Link href="/about" className="nav-link-btn text-decoration-none">
+              About
             </Link>
-            {dropdownOpen && (
-              <div className="nav-dropdown-menu animate-fade-in-up" style={{ animationDuration: "0.2s" }}>
-                <Link href="/services/interior-design" className="nav-dropdown-item text-decoration-none">
-                  Interior Design
-                </Link>
-                <Link href="/services/modular" className="nav-dropdown-item text-decoration-none">
-                  Modular
-                </Link>
-                <Link href="/services/false-ceiling" className="nav-dropdown-item text-decoration-none">
-                  False Ceiling
-                </Link>
-                <Link href="/services/painting" className="nav-dropdown-item text-decoration-none">
-                  Painting
-                </Link>
-              </div>
-            )}
-          </div>
 
-          <Link href="/consultation" className="nav-link-btn text-decoration-none">
-            Interior Design Consultation
-          </Link>
-          <Link href="/gallery" className="nav-link-btn text-decoration-none">
-            Gallery
-          </Link>
-          <Link href="/blogs" className="nav-link-btn text-decoration-none">
-            Blogs
-          </Link>
-          <Link href="/contact" className="nav-link-btn text-decoration-none">
-            Contact
-          </Link>
-          <div className="d-flex align-items-center gap-2 ms-2">
-            <a
-              href="https://wa.me/919876543210"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="d-inline-flex align-items-center justify-content-center text-decoration-none"
-              style={{
-                color: "#25D366",
-                transition: "transform 0.2s ease"
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.1)"}
-              onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1.0)"}
-              title="WhatsApp Contact"
+            {/* Services Dropdown */}
+            <div
+              className="nav-dropdown"
+              onMouseEnter={() => setDropdownOpen(true)}
+              onMouseLeave={() => setDropdownOpen(false)}
             >
-              <FaWhatsapp size={28} />
-            </a>
+              <Link
+                href="/services"
+                className="nav-link-btn text-decoration-none d-flex align-items-center gap-1"
+              >
+                Services <LuChevronDown size={14} className="ms-1" />
+              </Link>
+              {dropdownOpen && (
+                <div className="nav-dropdown-menu animate-fade-in-up" style={{ animationDuration: "0.2s" }}>
+                  <Link href="/services/interior-design" className="nav-dropdown-item text-decoration-none">
+                    Interior Design
+                  </Link>
+                  <Link href="/services/modular" className="nav-dropdown-item text-decoration-none">
+                    Modular
+                  </Link>
+                  <Link href="/services/false-ceiling" className="nav-dropdown-item text-decoration-none">
+                    False Ceiling
+                  </Link>
+                  <Link href="/services/painting" className="nav-dropdown-item text-decoration-none">
+                    Painting
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <Link href="/consultation" className="nav-link-btn text-decoration-none">
+              Interior Design Consultation
+            </Link>
+            <Link href="/gallery" className="nav-link-btn text-decoration-none">
+              Gallery
+            </Link>
+            <Link href="/blogs" className="nav-link-btn text-decoration-none">
+              Blogs
+            </Link>
+            <Link href="/contact" className="nav-link-btn text-decoration-none">
+              Contact
+            </Link>
+            <div className="d-flex align-items-center gap-2 ms-2">
+              <a
+                href="https://wa.me/919789888028"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="d-inline-flex align-items-center justify-content-center text-decoration-none"
+                style={{
+                  color: "#25D366",
+                  transition: "transform 0.2s ease"
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.1)"}
+                onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1.0)"}
+                title="WhatsApp Contact"
+              >
+                <FaWhatsapp size={28} />
+              </a>
+              <button
+                onClick={() => window.dispatchEvent(new CustomEvent("open-consultation-popup"))}
+                className="nav-estimate-btn d-inline-flex align-items-center justify-content-center"
+                suppressHydrationWarning
+              >
+                Get Free Estimate
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* MINIMAL PROMO RIGHT SIDE BUTTON */}
+        {pathname === "/promo" && (
+          <div className="d-flex align-items-center gap-2 ms-auto">
             <button
-              onClick={() => window.dispatchEvent(new CustomEvent("open-consultation-popup"))}
+              onClick={() => {
+                const el = document.getElementById("lead-form-section") || document.getElementById("bottom-form");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }}
               className="nav-estimate-btn d-inline-flex align-items-center justify-content-center"
               suppressHydrationWarning
             >
               Get Free Estimate
             </button>
           </div>
-        </div>
+        )}
 
         {/* HAMBURGER FOR MOBILE */}
-        <button
-          className={`hamburger-btn ${menuOpen ? "open" : ""}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span className="hamburger-line" />
-          <span className="hamburger-line" />
-          <span className="hamburger-line" />
-        </button>
+        {pathname !== "/promo" && (
+          <button
+            className={`hamburger-btn ${menuOpen ? "open" : ""}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className="hamburger-line" />
+            <span className="hamburger-line" />
+            <span className="hamburger-line" />
+          </button>
+        )}
       </div>
 
       {/* MOBILE MENU DROPDOWN */}
@@ -221,7 +241,7 @@ export default function Navbar() {
           <hr className="mobile-divider" />
           <div className="d-flex align-items-center justify-content-center gap-3 w-100 px-3">
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/919789888028"
               target="_blank"
               rel="noopener noreferrer"
               className="d-inline-flex align-items-center justify-content-center text-decoration-none"

@@ -1,7 +1,7 @@
 /* --- Design Process Section Base --- */
 .process-section {
-  background-color: rgba(217, 203, 164, 0.05);
-  padding: 4.5rem 1.5rem;
+  background-color: rgba(217, 203, 164, 0.02);
+  padding: 4rem 1.5rem;
   overflow: hidden;
 }
 
@@ -13,29 +13,28 @@
   font-family: var(--font-outfit), sans-serif;
 }
 
-/* --- Horizontal Roadmap Wrapper --- */
-.roadmap-horizontal-wrapper {
+/* --- Horizontal Winding Road Timeline (Desktop) --- */
+.roadmap-horizontal-wrap {
   position: relative;
   width: 100%;
-  height: 180px; /* High enough to contain alternating titles */
-  margin: 3.5rem auto;
-  align-items: center;
-  justify-content: center;
+  height: 280px;
+  /* Short height layout */
+  margin: 3rem auto;
 }
 
-/* Horizontal dark road path */
+/* The horizontal road asphalt path */
 .roadmap-horizontal-line {
   position: absolute;
   top: 50%;
-  left: 3%;
-  right: 3%;
-  height: 24px;
-  background-color: #1b2d24; /* Dark brand green asphalt */
-  border-top: 3.5px solid var(--primary-color); /* Gold border lines */
-  border-bottom: 3.5px solid var(--primary-color);
+  left: 0;
+  right: 0;
+  height: 16px;
+  background-color: #1b2d24;
+  /* Dark brand green asphalt */
   transform: translateY(-50%);
+  border-radius: 8px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4);
   z-index: 1;
-  border-radius: 12px;
 }
 
 /* Dashed lane marker */
@@ -48,178 +47,198 @@
   height: 1px;
   border-top: 1.5px dashed rgba(255, 255, 255, 0.85);
   transform: translateY(-50%);
+  opacity: 0.7;
 }
 
-.roadmap-horizontal-steps {
+.roadmap-horizontal-items {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  height: 100%;
   z-index: 2;
-  padding: 0 4%;
+  padding: 0 2%;
 }
 
-/* Winding step button */
-.roadmap-horizontal-step-btn {
-  background: none;
-  border: none;
+.roadmap-horizontal-item {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  width: 16.666%;
+  height: 100%;
   position: relative;
-  width: 14%;
-  height: 70px;
-  cursor: pointer;
-  transition: all 0.3s ease;
 }
 
-/* Standard Map Pin centered on road */
-.roadmap-horizontal-step-btn .map-pin {
-  width: 44px;
-  height: 44px;
+.roadmap-horizontal-item.above {
+  justify-content: flex-end;
+}
+
+.roadmap-horizontal-item.below {
+  justify-content: flex-start;
+}
+
+/* Text Info block styling */
+.roadmap-item-info {
+  text-align: center;
+  max-width: 170px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.roadmap-horizontal-item.above .roadmap-item-info {
+  margin-bottom: 2rem;
+}
+
+.roadmap-horizontal-item.below .roadmap-item-info {
+  margin-top: 2rem;
+}
+
+.roadmap-step-num {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary-color);
+}
+
+.roadmap-step-title {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-title);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.roadmap-step-desc {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.78rem;
+  color: var(--text-body);
+  opacity: 0.85;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Circle marker path pin on the road */
+.roadmap-road-marker {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.roadmap-pin {
+  width: 32px;
+  height: 32px;
+  background-color: #dc3545;
+  /* Red color from reference image */
+  color: #ffffff;
+  border: 2px solid #ffffff;
   border-radius: 50% 50% 50% 0;
-  background: #ffffff; /* Default state */
-  border: 3px solid rgba(15, 32, 24, 0.12);
   transform: rotate(-45deg);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: -2px 2px 6px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-  margin-bottom: 0; /* Aligned center */
-}
-
-.roadmap-horizontal-step-btn .map-pin span {
-  transform: rotate(45deg);
-  color: rgba(15, 32, 24, 0.4);
-  font-weight: 700;
-  font-size: 1rem;
-  font-family: var(--font-inter), sans-serif;
-}
-
-.roadmap-step-title {
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-body);
+  box-shadow: -1px 2px 5px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  white-space: nowrap;
 }
 
-/* Alternating Title placements (Odd = Below / Even = Above) */
-.roadmap-horizontal-step-btn:nth-child(odd) .roadmap-step-title {
-  position: absolute;
-  top: 62px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.roadmap-horizontal-step-btn:nth-child(even) .roadmap-step-title {
-  position: absolute;
-  bottom: 62px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Active and Hover states */
-.roadmap-horizontal-step-btn.active .map-pin,
-.roadmap-horizontal-step-btn:hover .map-pin {
-  background: var(--secondary-color);
-  border-color: var(--primary-color);
-  transform: rotate(-45deg) scale(1.15);
-  box-shadow: -4px 4px 10px rgba(15, 32, 24, 0.25);
-}
-
-.roadmap-horizontal-step-btn.active .map-pin span,
-.roadmap-horizontal-step-btn:hover .map-pin span {
-  color: var(--primary-color);
-}
-
-.roadmap-horizontal-step-btn.active .roadmap-step-title,
-.roadmap-horizontal-step-btn:hover .roadmap-step-title {
-  color: var(--text-title);
+.roadmap-pin span {
+  transform: rotate(45deg);
+  font-family: var(--font-inter), sans-serif;
   font-weight: 700;
+  font-size: 0.85rem;
+  display: block;
 }
 
-/* --- Mobile step pills --- */
-.mobile-step-pill {
-  background-color: #ffffff;
-  border: 1px solid rgba(15, 32, 24, 0.08);
-  padding: 0.4rem 0.85rem;
-  border-radius: 2rem;
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text-body);
-  cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
-}
-
-.mobile-step-pill.active {
+/* Hover effects */
+.roadmap-horizontal-item:hover .roadmap-pin {
+  transform: rotate(-45deg) scale(1.15);
   background-color: var(--secondary-color);
   color: var(--primary-color);
-  border-color: var(--primary-color);
-  box-shadow: 0 4px 10px rgba(15, 32, 24, 0.15);
+  box-shadow: -2px 3px 8px rgba(15, 32, 24, 0.3);
 }
 
-/* --- Detailed content panel --- */
-.roadmap-details-panel {
-  background-color: #ffffff;
-  border: 1px solid rgba(15, 32, 24, 0.06);
-  border-radius: 1.5rem;
-  overflow: hidden;
-  padding: 2rem;
-  box-shadow: 0 10px 30px rgba(15, 32, 24, 0.02);
-  max-width: 900px;
-  margin: 0 auto;
+.roadmap-horizontal-item:hover .roadmap-step-title {
+  color: var(--secondary-color);
 }
 
-.roadmap-panel-image {
+/* --- Vertical Timeline (Mobile & Tablet) --- */
+.roadmap-vertical-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  max-width: 500px;
+  margin: 2.5rem auto;
+  padding: 1rem 0;
 }
 
-.roadmap-panel-body {
+.roadmap-vertical-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 16px;
+  width: 12px;
+  background-color: #1b2d24;
+  border-radius: 6px;
+  z-index: 1;
+}
+
+.roadmap-vertical-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  border-left: 1px dashed rgba(255, 255, 255, 0.85);
+  transform: translateX(-50%);
+  opacity: 0.7;
+}
+
+.roadmap-vertical-items {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.roadmap-vertical-item {
+  display: flex;
   align-items: flex-start;
-  padding-left: 1rem;
+  width: 100%;
 }
 
-.roadmap-step-badge {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--primary-color);
-  background-color: rgba(217, 203, 164, 0.12);
-  padding: 0.25rem 0.75rem;
-  border-radius: 999px;
+.roadmap-vertical-marker {
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-.roadmap-panel-title {
-  font-family: var(--font-cormorant), serif;
-  font-size: 1.85rem;
-  font-weight: 700;
-  color: var(--text-title);
-  margin: 0;
-  line-height: 1.2;
+.roadmap-vertical-info {
+  margin-left: 1.25rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
-.roadmap-panel-desc {
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 0.92rem;
-  color: var(--text-body);
-  line-height: 1.6;
-  margin: 0;
+.roadmap-vertical-info .roadmap-step-title {
+  font-size: 1.2rem;
+}
+
+.roadmap-vertical-info .roadmap-step-desc {
+  font-size: 0.85rem;
 }
 
 /* --- Centered Call-To-Action Button --- */
@@ -245,14 +264,4 @@
   border-color: var(--secondary-color);
   box-shadow: 0 6px 18px rgba(15, 32, 24, 0.2);
   transform: translateY(-1px);
-}
-
-@media (max-width: 768px) {
-  .roadmap-details-panel {
-    padding: 1.25rem;
-  }
-
-  .roadmap-panel-body {
-    padding-left: 0;
-  }
 }

@@ -7,7 +7,7 @@ import "./FaqAccordion.css";
 
 export default function FaqAccordion({ items, title, subtitle }) {
   const [activeFaq, setActiveFaq] = useState(null);
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", service: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
   const toggleFaq = (idx) => {
@@ -19,12 +19,26 @@ export default function FaqAccordion({ items, title, subtitle }) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Replace with your actual submit logic (API call, email service, etc.)
-    console.log("Form submitted:", formData);
     setSubmitted(true);
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message,
+          type: "FAQ Consultation Form"
+        })
+      });
+    } catch (err) {
+      console.error("Error submitting FAQ lead form:", err);
+    }
+    setFormData({ name: "", email: "", phone: "", service: "", message: "" });
     setTimeout(() => setSubmitted(false), 4000);
   };
 
@@ -136,6 +150,36 @@ export default function FaqAccordion({ items, title, subtitle }) {
               onChange={handleChange}
               required
             />
+          </div>
+
+          <div className="faq-form-group">
+            <label htmlFor="faq-service" className="faq-form-label">
+              Service Required
+            </label>
+            <select
+              id="faq-service"
+              name="service"
+              className="faq-form-input"
+              value={formData.service}
+              onChange={handleChange}
+              required
+              style={{
+                backgroundColor: "rgba(255, 255, 255, 0.05)",
+                color: "var(--text-on-dark-body)",
+                border: "1px solid rgba(217, 203, 164, 0.25)"
+              }}
+            >
+              <option value="" style={{ backgroundColor: "var(--fourth-color)" }}>Select Service</option>
+              <option value="Complete Home Interior" style={{ backgroundColor: "var(--fourth-color)" }}>Complete Home Interior</option>
+              <option value="Modular Kitchen" style={{ backgroundColor: "var(--fourth-color)" }}>Modular Kitchen</option>
+              <option value="Living Room Design" style={{ backgroundColor: "var(--fourth-color)" }}>Living Room Design</option>
+              <option value="Bedroom Interiors" style={{ backgroundColor: "var(--fourth-color)" }}>Bedroom Interiors</option>
+              <option value="False Ceiling Decor" style={{ backgroundColor: "var(--fourth-color)" }}>False Ceiling Decor</option>
+              <option value="Professional Painting" style={{ backgroundColor: "var(--fourth-color)" }}>Professional Painting</option>
+              <option value="Space Planning" style={{ backgroundColor: "var(--fourth-color)" }}>Space Planning</option>
+              <option value="Office / Commercial Interior" style={{ backgroundColor: "var(--fourth-color)" }}>Office / Commercial Interior</option>
+              <option value="Others" style={{ backgroundColor: "var(--fourth-color)" }}>Others</option>
+            </select>
           </div>
 
           <div className="faq-form-group">

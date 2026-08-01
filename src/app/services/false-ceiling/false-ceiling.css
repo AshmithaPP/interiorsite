@@ -29,6 +29,16 @@
   background-repeat: no-repeat;
 }
 
+.ceiling-hero-subtitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--primary-color) !important;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: block;
+}
+
 .ceiling-hero-pattern {
   display: none;
 }

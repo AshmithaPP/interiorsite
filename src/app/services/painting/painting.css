@@ -29,6 +29,16 @@
   background-repeat: no-repeat;
 }
 
+.painting-hero-subtitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--primary-color) !important;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: block;
+}
+
 .painting-hero-pattern {
   display: none;
 }

@@ -6,7 +6,7 @@ export default function Hero() {
       {/* Optimized Background Image (LCP optimization) */}
       <div className="hero-bg-wrapper">
         <Image
-          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80"
+          src="/hero/3.png"
           alt="Modern Luxury Living Room"
           fill
           priority

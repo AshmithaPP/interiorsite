@@ -173,10 +173,41 @@ export default function ServicesPage() {
 
   // Form submission success states
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [location, setLocation] = useState("");
+  const [errors, setErrors] = useState({});
+
+  const validate = () => {
+    const newErrors = {};
+    if (!name || name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters.";
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
+      newErrors.email = "Please enter a valid email address.";
+    }
+    const cleaned = (phone || "").replace(/[^0-9]/g, "");
+    if (cleaned.length !== 10) {
+      newErrors.phone = "Phone number must be exactly 10 digits.";
+    }
+    if (!location || location.trim().length < 2) {
+      newErrors.location = "Please enter your property location.";
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!validate()) return;
     setFormSubmitted(true);
+    setName("");
+    setEmail("");
+    setPhone("");
+    setLocation("");
+    setErrors({});
   };
 
   return (
@@ -426,9 +457,15 @@ export default function ServicesPage() {
                       <input 
                         type="text" 
                         required 
-                        className="estimation-input" 
+                        className={`estimation-input ${errors.name ? "is-invalid" : ""}`} 
                         placeholder="e.g. John Doe"
+                        value={name}
+                        onChange={(e) => {
+                          setName(e.target.value);
+                          if (errors.name) setErrors((prev) => ({ ...prev, name: "" }));
+                        }}
                       />
+                      {errors.name && <span className="estimation-error-msg" style={{ color: "#ff4d4d", fontSize: "0.75rem", marginTop: "0.25rem", display: "block" }}>{errors.name}</span>}
                     </div>
 
                     <div className="estimation-input-group">
@@ -436,9 +473,15 @@ export default function ServicesPage() {
                       <input 
                         type="email" 
                         required 
-                        className="estimation-input" 
+                        className={`estimation-input ${errors.email ? "is-invalid" : ""}`} 
                         placeholder="e.g. john@example.com"
+                        value={email}
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                          if (errors.email) setErrors((prev) => ({ ...prev, email: "" }));
+                        }}
                       />
+                      {errors.email && <span className="estimation-error-msg" style={{ color: "#ff4d4d", fontSize: "0.75rem", marginTop: "0.25rem", display: "block" }}>{errors.email}</span>}
                     </div>
 
                     <div className="estimation-input-group">
@@ -446,9 +489,15 @@ export default function ServicesPage() {
                       <input 
                         type="tel" 
                         required 
-                        className="estimation-input" 
+                        className={`estimation-input ${errors.phone ? "is-invalid" : ""}`} 
                         placeholder="e.g. +91 98765 43210"
+                        value={phone}
+                        onChange={(e) => {
+                          setPhone(e.target.value);
+                          if (errors.phone) setErrors((prev) => ({ ...prev, phone: "" }));
+                        }}
                       />
+                      {errors.phone && <span className="estimation-error-msg" style={{ color: "#ff4d4d", fontSize: "0.75rem", marginTop: "0.25rem", display: "block" }}>{errors.phone}</span>}
                     </div>
 
                     <div className="estimation-input-group">
@@ -456,9 +505,15 @@ export default function ServicesPage() {
                       <input 
                         type="text" 
                         required 
-                        className="estimation-input" 
+                        className={`estimation-input ${errors.location ? "is-invalid" : ""}`} 
                         placeholder="e.g. Chennai, Adyar"
+                        value={location}
+                        onChange={(e) => {
+                          setLocation(e.target.value);
+                          if (errors.location) setErrors((prev) => ({ ...prev, location: "" }));
+                        }}
                       />
+                      {errors.location && <span className="estimation-error-msg" style={{ color: "#ff4d4d", fontSize: "0.75rem", marginTop: "0.25rem", display: "block" }}>{errors.location}</span>}
                     </div>
 
                     <div className="col-12 text-center mt-3">

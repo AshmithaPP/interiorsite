@@ -73,9 +73,27 @@ export default function PromoClient() {
     budget: "Select Budget"
   });
   const [topSubmitted, setTopSubmitted] = useState(false);
+  const [topErrors, setTopErrors] = useState({});
+
+  const validateTopForm = () => {
+    const newErrors = {};
+    if (!topFormData.name || topFormData.name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters.";
+    }
+    const cleaned = (topFormData.phone || "").replace(/[^0-9]/g, "");
+    if (cleaned.length !== 10) {
+      newErrors.phone = "Phone number must be exactly 10 digits.";
+    }
+    if (topFormData.serviceRequired === "Select Service Required" || !topFormData.serviceRequired) {
+      newErrors.serviceRequired = "Please select a service.";
+    }
+    setTopErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleTopSubmit = async (e) => {
     e.preventDefault();
+    if (!validateTopForm()) return;
     setTopSubmitted(true);
     try {
       await fetch("/api/contact", {
@@ -100,6 +118,7 @@ export default function PromoClient() {
       propertyType: "Select Property Type",
       budget: "Select Budget"
     });
+    setTopErrors({});
     setTimeout(() => setTopSubmitted(false), 4000);
   };
 
@@ -353,12 +372,13 @@ export default function PromoClient() {
                       <input
                         id="top-name"
                         type="text"
-                        className="promo-form-input"
+                        className={`promo-form-input ${topErrors.name ? "is-invalid" : ""}`}
                         placeholder="Your Name"
                         required
                         value={topFormData.name}
                         onChange={(e) => setTopFormData({ ...topFormData, name: e.target.value })}
                       />
+                      {topErrors.name && <span className="promo-error-msg" style={{ color: "#dc3545", fontSize: "0.78rem", marginTop: "0.35rem", display: "block" }}>{topErrors.name}</span>}
                     </div>
 
                     <div className="promo-form-group">
@@ -366,19 +386,20 @@ export default function PromoClient() {
                       <input
                         id="top-phone"
                         type="tel"
-                        className="promo-form-input"
+                        className={`promo-form-input ${topErrors.phone ? "is-invalid" : ""}`}
                         placeholder="Phone Number"
                         required
                         value={topFormData.phone}
                         onChange={(e) => setTopFormData({ ...topFormData, phone: e.target.value })}
                       />
+                      {topErrors.phone && <span className="promo-error-msg" style={{ color: "#dc3545", fontSize: "0.78rem", marginTop: "0.35rem", display: "block" }}>{topErrors.phone}</span>}
                     </div>
 
                     <div className="promo-form-group">
                       <label htmlFor="top-service" className="promo-form-label">Service Required</label>
                       <select
                         id="top-service"
-                        className="promo-form-input"
+                        className={`promo-form-input ${topErrors.serviceRequired ? "is-invalid" : ""}`}
                         value={topFormData.serviceRequired}
                         onChange={(e) => setTopFormData({ ...topFormData, serviceRequired: e.target.value })}
                       >
@@ -386,6 +407,7 @@ export default function PromoClient() {
                           <option key={i} value={opt}>{opt}</option>
                         ))}
                       </select>
+                      {topErrors.serviceRequired && <span className="promo-error-msg" style={{ color: "#dc3545", fontSize: "0.78rem", marginTop: "0.35rem", display: "block" }}>{topErrors.serviceRequired}</span>}
                     </div>
 
                     <div className="promo-form-group">
@@ -433,7 +455,7 @@ export default function PromoClient() {
             <div className="row g-4 text-center">
               {[
                 { value: "10+", label: "Years Experience", icon: LuAward },
-                { value: "1,000+", label: "Satisfied Clients", icon: LuUsers },
+                { value: "100+", label: "Satisfied Clients", icon: LuUsers },
                 { value: "100%", label: "Custom Designs", icon: LuCheck },
                 { value: "Chennai", label: "Core Service Area", icon: LuCompass }
               ].map((stat, idx) => {

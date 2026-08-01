@@ -12,6 +12,20 @@ export default function ConsultationPopup() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [consent, setConsent] = useState(true);
+  const [errors, setErrors] = useState({});
+
+  const validate = () => {
+    const newErrors = {};
+    if (!name || name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters.";
+    }
+    const cleaned = (phone || "").replace(/[^0-9]/g, "");
+    if (cleaned.length !== 10) {
+      newErrors.phone = "Phone number must be exactly 10 digits.";
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   // Locations list for dropdown selection
   const locations = [
@@ -39,6 +53,7 @@ export default function ConsultationPopup() {
     const handleOpenEvent = () => {
       setIsOpen(true);
       setIsSubmitted(false);
+      setErrors({});
     };
 
     window.addEventListener("open-consultation-popup", handleOpenEvent);
@@ -55,7 +70,7 @@ export default function ConsultationPopup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name || !phone) return;
+    if (!validate()) return;
     
     // Simulate successful API call
     setIsSubmitted(true);
@@ -68,6 +83,7 @@ export default function ConsultationPopup() {
       setPropertyType("2 BHK");
       setLocation("Anna Nagar");
       setPhone("");
+      setErrors({});
     }, 3500);
   };
 
@@ -164,10 +180,14 @@ export default function ConsultationPopup() {
                     type="text"
                     required
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => {
+                      setName(e.target.value);
+                      if (errors.name) setErrors((prev) => ({ ...prev, name: "" }));
+                    }}
                     placeholder="Enter your name"
-                    className="form-input-custom"
+                    className={`form-input-custom ${errors.name ? "is-invalid" : ""}`}
                   />
+                  {errors.name && <span className="popup-error-msg" style={{ color: "#dc3545", fontSize: "0.75rem", marginTop: "0.25rem", display: "block" }}>{errors.name}</span>}
                 </div>
 
                 {/* Mobile Number Input */}
@@ -178,14 +198,17 @@ export default function ConsultationPopup() {
                     <input
                       id="popup-phone"
                       type="tel"
-                      pattern="[0-9]{10}"
                       required
                       value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
+                      onChange={(e) => {
+                        setPhone(e.target.value);
+                        if (errors.phone) setErrors((prev) => ({ ...prev, phone: "" }));
+                      }}
                       placeholder="10-digit number"
-                      className="form-input-custom phone-field"
+                      className={`form-input-custom phone-field ${errors.phone ? "is-invalid" : ""}`}
                     />
                   </div>
+                  {errors.phone && <span className="popup-error-msg" style={{ color: "#dc3545", fontSize: "0.75rem", marginTop: "0.25rem", display: "block" }}>{errors.phone}</span>}
                 </div>
 
                 {/* Consent Checkbox */}

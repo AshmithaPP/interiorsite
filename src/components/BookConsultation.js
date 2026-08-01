@@ -25,17 +25,51 @@ export default function BookConsultation({
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.name || formData.name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters.";
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email || !emailRegex.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address.";
+    }
+    const cleaned = (formData.mobile || "").replace(/[^0-9]/g, "");
+    if (cleaned.length !== 10) {
+      newErrors.mobile = "Phone number must be exactly 10 digits.";
+    }
+    if (!formData.location || formData.location.trim().length < 2) {
+      newErrors.location = "Please enter your property location.";
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!validate()) return;
     setTimeout(() => {
       setSubmitted(true);
+      setFormData({
+        name: "",
+        mobile: "",
+        email: "",
+        projectType: dropdownOptions ? dropdownOptions[0] : "Complete Home Interior",
+        location: "",
+        message: ""
+      });
+      setErrors({});
     }, 600);
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
   };
 
   const defaultOptions = [
@@ -231,47 +265,52 @@ export default function BookConsultation({
                       <input 
                         type="text" 
                         name="name" 
-                        className="reference-input" 
+                        className={`reference-input ${errors.name ? "is-invalid" : ""}`} 
                         placeholder="Name*" 
                         required
                         value={formData.name}
                         onChange={handleChange}
                       />
+                      {errors.name && <span className="reference-error-msg" style={{ color: "#dc3545", fontSize: "0.75rem", marginTop: "0.25rem", display: "block" }}>{errors.name}</span>}
                     </div>
 
-                    <div className="row g-3">
-                      <div className="col-4">
-                        <input 
-                          type="text" 
-                          className="reference-input text-center" 
-                          value="+91 IND" 
-                          disabled
-                          style={{ cursor: "not-allowed", fontWeight: "600", color: "#495057" }}
-                        />
+                    <div>
+                      <div className="row g-3">
+                        <div className="col-4">
+                          <input 
+                            type="text" 
+                            className="reference-input text-center" 
+                            value="+91 IND" 
+                            disabled
+                            style={{ cursor: "not-allowed", fontWeight: "600", color: "#495057" }}
+                          />
+                        </div>
+                        <div className="col-8">
+                          <input 
+                            type="tel" 
+                            name="mobile" 
+                            className={`reference-input ${errors.mobile ? "is-invalid" : ""}`} 
+                            placeholder="Mobile Num*" 
+                            required
+                            value={formData.mobile}
+                            onChange={handleChange}
+                          />
+                        </div>
                       </div>
-                      <div className="col-8">
-                        <input 
-                          type="tel" 
-                          name="mobile" 
-                          className="reference-input" 
-                          placeholder="Mobile Num*" 
-                          required
-                          value={formData.mobile}
-                          onChange={handleChange}
-                        />
-                      </div>
+                      {errors.mobile && <span className="reference-error-msg" style={{ color: "#dc3545", fontSize: "0.75rem", marginTop: "0.25rem", display: "block" }}>{errors.mobile}</span>}
                     </div>
 
                     <div>
                       <input 
                         type="email" 
                         name="email" 
-                        className="reference-input" 
+                        className={`reference-input ${errors.email ? "is-invalid" : ""}`} 
                         placeholder="Email Address*" 
                         required
                         value={formData.email}
                         onChange={handleChange}
                       />
+                      {errors.email && <span className="reference-error-msg" style={{ color: "#dc3545", fontSize: "0.75rem", marginTop: "0.25rem", display: "block" }}>{errors.email}</span>}
                     </div>
 
                     <div>
@@ -291,12 +330,13 @@ export default function BookConsultation({
                       <input 
                         type="text" 
                         name="location" 
-                        className="reference-input" 
+                        className={`reference-input ${errors.location ? "is-invalid" : ""}`} 
                         placeholder="Property Location*" 
                         required
                         value={formData.location}
                         onChange={handleChange}
                       />
+                      {errors.location && <span className="reference-error-msg" style={{ color: "#dc3545", fontSize: "0.75rem", marginTop: "0.25rem", display: "block" }}>{errors.location}</span>}
                     </div>
 
                     <div>

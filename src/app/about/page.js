@@ -248,7 +248,7 @@ export default function AboutPage() {
                         marginBottom: "1.25rem"
                       }}
                     >
-                      Welcome to Kingsford, a trusted name in interior design and home transformation. With over 10 years of experience in the industry, we have successfully completed projects for more than 1,000 satisfied clients across Chennai and surrounding areas.
+                      Welcome to Kingsford, a trusted name in interior design and home transformation. With over 10 years of experience in the industry, we have successfully completed projects for more than 100+ satisfied clients across Chennai and surrounding areas.
                     </p>
                     <p 
                       style={{ 
@@ -287,7 +287,7 @@ export default function AboutPage() {
               <div className="row g-4 text-center">
                 {[
                   { value: "10+", label: "Years Experience", icon: LuAward },
-                  { value: "1,000+", label: "Satisfied Clients", icon: LuUsers },
+                  { value: "100+", label: "Satisfied Clients", icon: LuUsers },
                   { value: "100%", label: "Custom Designs", icon: LuCheck },
                   { value: "Chennai", label: "Core Service Area", icon: LuCompass }
                 ].map((stat, idx) => {
@@ -514,7 +514,7 @@ export default function AboutPage() {
                   },
                   {
                     num: "02",
-                    title: "1,000+ Satisfied Homeowners",
+                    title: "100+ Satisfied Homeowners",
                     icon: LuUsers,
                     desc: "Trusted by families across Chennai who value craftsmanship, transparency, and outstanding customer service."
                   },
@@ -712,7 +712,7 @@ export default function AboutPage() {
                   className="mx-auto mt-3"
                   style={{ fontFamily: "var(--font-outfit), sans-serif", maxWidth: "600px", color: "var(--text-on-dark-body)" }}
                 >
-                  Successfully completed over 1,000 interior spaces in Chennai&apos;s premier residential sectors.
+                  Successfully completed over 100+ interior spaces in Chennai&apos;s premier residential sectors.
                 </p>
               </InView>
 

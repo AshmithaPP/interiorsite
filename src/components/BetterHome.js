@@ -137,7 +137,7 @@ export default function BetterHome() {
             {/* AFTER image (full width, sits behind) */}
             <div className="position-absolute top-0 start-0 w-100 h-100">
               <Image
-                src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1200&q=80"
+                src="/betterhome/after.png"
                 alt="After renovation — cozy modern bedroom with warm lighting and customized wardrobe"
                 fill
                 sizes="(max-width: 1200px) 100vw, 1200px"
@@ -153,7 +153,7 @@ export default function BetterHome() {
             >
               <div style={{ width: containerWidth ? `${containerWidth}px` : "100%", height: "100%", position: "relative" }}>
                 <Image
-                  src="/compare-1.jpg"
+                  src="/betterhome/before.png"
                   alt="Before renovation — plain room with bare walls"
                   fill
                   sizes="(max-width: 1200px) 100vw, 1200px"

@@ -13,7 +13,7 @@ export default function WhoWeAre() {
             alt="Luxury interior design plan"
             fill
             sizes="(max-width: 768px) 100vw, 360px"
-            style={{ objectFit: "cover", opacity: 0.15, mixBlendMode: "multiply", pointerEvents: "none", zIndex: 0 }}
+            style={{ objectFit: "cover", opacity: 0.45, mixBlendMode: "multiply", pointerEvents: "none", zIndex: 0 }}
           />
           {/* Top label */}
           <div className="stats-card-top">
@@ -49,12 +49,12 @@ export default function WhoWeAre() {
           {/* Bottom stats row with modern numbers */}
           <div className="stats-card-bottom">
             <div className="stat-item">
-              <span className="stat-number modern-number">150+</span>
+              <span className="stat-number modern-number">100+</span>
               <span className="stat-desc">Furniture Suppliers</span>
             </div>
             <div className="stat-divider" />
             <div className="stat-item">
-              <span className="stat-number modern-number">15+</span>
+              <span className="stat-number modern-number">10+</span>
               <span className="stat-desc">Years of Industry Experience</span>
             </div>
           </div>

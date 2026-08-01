@@ -152,7 +152,7 @@ export default function ConsultationClient() {
           <BookConsultation
             formTitle="Get Free Consultation"
             formSubtitle="Fill out the contact form below and our team will get back to you as soon as possible."
-            backgroundImage="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1600&q=80"
+            backgroundImage="/hero/int-consultation/1.png"
           >
             {/* Custom Left Column specific to the Consultation page */}
             <InView className="reveal-up" threshold={0.1}>
@@ -291,7 +291,7 @@ export default function ConsultationClient() {
             description="Whether you are planning a new home, apartment, villa, or renovation project, Kingsford is here to help you make the right design decisions. Contact us today to schedule your interior design consultation."
             formTitle="Request Consultation"
             formSubtitle="Book your design slot and our specialist team will call you back."
-            dropdownOptions={["General Consultation", "Space Planning", "Design Suggestions", "Modular Kitchen Planning", "Cost Estimation"]}
+            dropdownOptions={["General Consultation", "Space Planning", "Design Suggestions", "Modular Kitchen Planning","False-ceiling","Painting", "Cost Estimation","Interior design"]}
             backgroundImage="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1800&q=80"
           />
         </main>

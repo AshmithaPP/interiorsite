@@ -237,7 +237,7 @@ export default function FalseCeilingClient() {
                   <InView className="reveal-up" style={{ transitionDelay: "0.08s" }} threshold={0.1}>
                     <div className="position-relative w-100 overflow-hidden shadow-sm" style={{ aspectRatio: "4/3", borderRadius: "1.5rem" }}>
                       <Image
-                        src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80"
+                        src="/hero/false-ceiling/false3.webp"
                         alt="Kingsford False Ceiling Chennai"
                         fill
                         sizes="(max-width: 768px) 100vw, 600px"

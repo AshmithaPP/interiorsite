@@ -264,7 +264,7 @@ export default function Footer() {
                 )}
                 <div className="footer-contact-item">
                   <LuMapPin size={16} />
-                  <span>No 29, Ground Floor, Grace Hospital, Balavinayagar Kovil Street Shastri Nagar, Pattabiram, Chennai-600072, Tamil Nadu</span>
+                  <span> Chennai-600072</span>
                 </div>
               </div>
             </div>

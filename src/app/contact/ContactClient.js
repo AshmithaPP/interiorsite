@@ -119,7 +119,7 @@ export default function ContactClient() {
                 </div>
                 <div className="d-flex align-items-center gap-3">
                   <LuMapPin size={18} style={{ color: "var(--primary-color)" }} />
-                  <span><strong>Address:</strong> No 29, Ground Floor, Grace Hospital, Balavinayagar Kovil Street Shastri Nagar, Pattabiram, Chennai-600072, Tamil Nadu</span>
+                  <span><strong>Address:</strong> Chennai-600072 </span>
                 </div>
                 <div className="d-flex align-items-center gap-3">
                   <LuClock size={18} style={{ color: "var(--primary-color)" }} />

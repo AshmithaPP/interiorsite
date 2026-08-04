@@ -29,7 +29,7 @@ const BLOG_POSTS = [
   },
   {
     id: 2,
-    title: "Designing a Dream Home in Mangalore with D’LIFE Interiors",
+    title: "Designing a Dream Home in Mangalore with Kingsford Interiors",
     date: "Jun 25, 2026",
     category: "Design Trends",
     readTime: "5 min read",
@@ -38,7 +38,7 @@ const BLOG_POSTS = [
   },
   {
     id: 3,
-    title: "Inside Antony Dhas and Harshia’s Modern Home by D’LIFE Interiors, Nagercoil",
+    title: "Inside Antony Dhas and Harshia’s Modern Home by Kingsford Interiors, Nagercoil",
     date: "Jun 10, 2026",
     category: "Celebrity Homes",
     readTime: "6 min read",
@@ -47,11 +47,11 @@ const BLOG_POSTS = [
   },
   {
     id: 4,
-    title: "Elegant Modern Home Interiors in Cherthala by D’LIFE Interior Designers",
+    title: "Elegant Modern Home Interiors in Cherthala by Kingsford Interior Designers",
     date: "May 26, 2026",
     category: "Modular Kitchens",
     readTime: "4 min read",
-    excerpt: "Riyas Backer & Siya Backer asked D’LIFE interior designers to design and execute modular kitchen, dining space, bedrooms and living room interiors. Discover how we combined blue matte cabinets and premium hardware.",
+    excerpt: "Riyas Backer & Siya Backer asked Kingsford interior designers to design and execute modular kitchen, dining space, bedrooms and living room interiors. Discover how we combined blue matte cabinets and premium hardware.",
     image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600&auto=format&fit=crop"
   },
   {
@@ -65,7 +65,7 @@ const BLOG_POSTS = [
   },
   {
     id: 6,
-    title: "A Perfectly Crafted Home in Thiruvalla by D’LIFE Interiors",
+    title: "A Perfectly Crafted Home in Thiruvalla by Kingsford Interiors",
     date: "Apr 29, 2026",
     category: "Space Planning",
     readTime: "4 min read",
@@ -83,7 +83,7 @@ const BLOG_POSTS = [
   },
   {
     id: 8,
-    title: "How D’LIFE Interiors Turned Interior Design Dreams into Reality",
+    title: "How Kingsford Interiors Turned Interior Design Dreams into Reality",
     date: "Mar 27, 2026",
     category: "Space Planning",
     readTime: "5 min read",

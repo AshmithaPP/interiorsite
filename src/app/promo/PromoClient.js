@@ -327,8 +327,7 @@ export default function PromoClient() {
                   Interior Designers in Chennai
                 </span>
                 <h1 className="promo-hero-subtitle fw-bold mt-2 mb-3">
-                  Transform Your Dream Home with Kingsford Interiors
-                </h1>
+Elevate Every Corner of Your Home with Kingsford Interiors                </h1>
                 <p className="promo-hero-desc mb-4">
                   Beautiful, Functional & Affordable Interiors Designed Just for You.
                 </p>
@@ -377,6 +376,7 @@ export default function PromoClient() {
                         required
                         value={topFormData.name}
                         onChange={(e) => setTopFormData({ ...topFormData, name: e.target.value })}
+                        suppressHydrationWarning
                       />
                       {topErrors.name && <span className="promo-error-msg" style={{ color: "#dc3545", fontSize: "0.78rem", marginTop: "0.35rem", display: "block" }}>{topErrors.name}</span>}
                     </div>
@@ -391,6 +391,7 @@ export default function PromoClient() {
                         required
                         value={topFormData.phone}
                         onChange={(e) => setTopFormData({ ...topFormData, phone: e.target.value })}
+                        suppressHydrationWarning
                       />
                       {topErrors.phone && <span className="promo-error-msg" style={{ color: "#dc3545", fontSize: "0.78rem", marginTop: "0.35rem", display: "block" }}>{topErrors.phone}</span>}
                     </div>
@@ -402,6 +403,7 @@ export default function PromoClient() {
                         className={`promo-form-input ${topErrors.serviceRequired ? "is-invalid" : ""}`}
                         value={topFormData.serviceRequired}
                         onChange={(e) => setTopFormData({ ...topFormData, serviceRequired: e.target.value })}
+                        suppressHydrationWarning
                       >
                         {serviceOptions.map((opt, i) => (
                           <option key={i} value={opt}>{opt}</option>
@@ -417,6 +419,7 @@ export default function PromoClient() {
                         className="promo-form-input"
                         value={topFormData.propertyType}
                         onChange={(e) => setTopFormData({ ...topFormData, propertyType: e.target.value })}
+                        suppressHydrationWarning
                       >
                         {propertyOptions.map((opt, i) => (
                           <option key={i} value={opt}>{opt}</option>
@@ -431,6 +434,7 @@ export default function PromoClient() {
                         className="promo-form-input"
                         value={topFormData.budget}
                         onChange={(e) => setTopFormData({ ...topFormData, budget: e.target.value })}
+                        suppressHydrationWarning
                       >
                         {budgetOptions.map((opt, i) => (
                           <option key={i} value={opt}>{opt}</option>
@@ -438,7 +442,7 @@ export default function PromoClient() {
                       </select>
                     </div>
 
-                    <button type="submit" className="promo-form-btn">
+                    <button type="submit" className="promo-form-btn" suppressHydrationWarning>
                       {topSubmitted ? "Consultation Booked ✓" : "Get Free Consultation"}
                     </button>
                   </form>

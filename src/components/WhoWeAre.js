@@ -76,7 +76,7 @@ export default function WhoWeAre() {
         {/* RIGHT: Image with scale-in reveal */}
         <InView className="whoweare-image-wrap reveal-scale delay-300" threshold={0.15}>
           <Image
-            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80"
+            src="/hero/home2.png"
             alt="Team collaborating on design materials"
             fill
             sizes="(max-width: 768px) 100vw, 320px"

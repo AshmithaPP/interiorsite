@@ -10,7 +10,7 @@
   padding: 6rem 5% 5rem;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(15, 32, 24, 0.92), rgba(15, 32, 24, 0.75)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80') no-repeat center center / cover;
+  background: linear-gradient(180deg, rgba(15, 32, 24, 0.88), rgba(15, 32, 24, 0.65)), url('/heroPromo.jpeg') no-repeat center center / cover;
   min-height: 85vh;
   display: flex;
   align-items: center;

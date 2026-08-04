@@ -35,7 +35,7 @@ export default function GalleryClient() {
       title: "Living & <span>Bedrooms</span>",
       desc: "Warm, welcoming living rooms and serene bedrooms tailored for ultimate comfort and custom aesthetics.",
       cta: "Explore Rooms",
-      image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80",
+      image: "/gallery/bedroom1.jpeg",
     },
     {
       id: "bespoke-banner",
@@ -63,7 +63,7 @@ export default function GalleryClient() {
     },
     {
       id: 3,
-      src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80",
+      src: "/hero/modular-kitchen/kitchen1.png",
       category: "Modular Kitchen",
       title: "Luxury Glossy Acrylic White Kitchen",
     },
@@ -82,7 +82,7 @@ export default function GalleryClient() {
     },
     {
       id: 6,
-      src: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80",
+      src: "/gallery/bedroom1.jpeg",
       category: "Bedroom",
       title: "Warm Oak Accented Cozy Bedroom",
     },
@@ -126,32 +126,32 @@ export default function GalleryClient() {
     // False Ceilings
     {
       id: 13,
-      src: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
+      src: "/false1.png",
       category: "False Ceiling",
       title: "Linear Drop Ceiling with Cove Lighting",
     },
     {
       id: 14,
-      src: "https://images.unsplash.com/photo-1502005229762-fc1b2b812ca5?auto=format&fit=crop&w=800&q=80",
+      src: "/false2.jpg",
       category: "False Ceiling",
       title: "Recessed Panel Lighting for Dining Halls",
     },
     {
       id: 15,
-      src: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+      src: "/false3.webp",
       category: "False Ceiling",
       title: "Modern Wooden Beam Ceiling Accent",
     },
     {
       id: 16,
-      src: "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=800&q=80",
+      src: "/false4.jpg",
       category: "False Ceiling",
       title: "Minimal Geometric Drywall Multi-tier Ceiling",
     },
     // Wardrobes
     {
       id: 17,
-      src: "https://images.unsplash.com/photo-1558882224-cca166733360?auto=format&fit=crop&w=800&q=80",
+      src: "/wordrobe1.webp",
       category: "Wardrobes",
       title: "Modern Matte Sliding Closet",
     },

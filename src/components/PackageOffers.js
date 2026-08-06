@@ -12,7 +12,7 @@ export default function PackageOffers() {
       unit: "Lakhs",
       description: "Smart and budget-friendly complete 1 BHK home interior design package with premium finishes.",
       ctaText: "Book Consultation",
-      coverImage: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80",
+      coverImage: "/home/1.png",
       sliderImages: [
         "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80",
@@ -27,7 +27,7 @@ export default function PackageOffers() {
       unit: "Lakhs",
       description: "Elegant and highly customized 2 BHK home interior package with modular units and space-saving solutions.",
       ctaText: "Book Consultation",
-      coverImage: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80",
+      coverImage: "/home/2.png",
       sliderImages: [
         "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80",
@@ -42,7 +42,7 @@ export default function PackageOffers() {
       unit: "Lakhs",
       description: "Luxury and ultra-premium 3 BHK design package featuring bespoke materials, custom layouts, and luxury finishes.",
       ctaText: "Book Consultation",
-      coverImage: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=800&q=80",
+    coverImage: "/home/3.png",
       sliderImages: [
         "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80",
@@ -73,31 +73,12 @@ export default function PackageOffers() {
           ))}
         </div>
 
-        {/* Infinite Scrolling Marquee Banner with Enquiry Button */}
-        <div className="running-text-banner-wrapper">
-          <div className="running-text-marquee">
-            <div className="marquee-content">
-              <span>Customizable Designs Package Available</span>
-              <span>•</span>
-              <span>Customizable Designs Package Available</span>
-              <span>•</span>
-              <span>Customizable Designs Package Available</span>
-              <span>•</span>
-              <span>Customizable Designs Package Available</span>
-              <span>•</span>
-              <span>Customizable Designs Package Available</span>
-              <span>•</span>
-              <span>Customizable Designs Package Available</span>
-              <span>•</span>
-              <span>Customizable Designs Package Available</span>
-              <span>•</span>
-              <span>Customizable Designs Package Available</span>
-              <span>•</span>
-            </div>
-          </div>
+        {/* Modern Simple Row Banner */}
+        <div className="custom-designs-simple-row-banner">
+          <span className="simple-row-text">Customizable Designs Package Available</span>
           <button 
             onClick={() => window.dispatchEvent(new CustomEvent("open-consultation-popup"))}
-            className="marquee-enquiry-btn"
+            className="simple-row-enquiry-btn"
             suppressHydrationWarning
           >
             Enquiry

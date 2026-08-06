@@ -11,7 +11,7 @@ export default function BlogSection() {
       author: "Elixir",
       date: "Apr 09, 2026",
       category: "MODERN KITCHEN IDEAS 2026",
-      image: "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=800&q=80",
+      image: "/blogs/1.png",
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ export default function BlogSection() {
       author: "Elixir",
       date: "Apr 09, 2026",
       category: "WARDROBE DESIGN IDEAS",
-      image: "https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=800&q=80",
+      image: "/blogs/2.png",
     },
     {
       id: 3,
@@ -27,7 +27,7 @@ export default function BlogSection() {
       author: "Elixir",
       date: "Apr 08, 2026",
       category: "INTERIOR DESIGN IDEAS",
-      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+      image: "/blogs/3.png",
     },
   ];
 

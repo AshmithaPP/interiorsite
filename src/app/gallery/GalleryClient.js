@@ -169,7 +169,7 @@ export default function GalleryClient() {
     },
     {
       id: 20,
-      src: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=800&q=80",
+      src: "/wardrobe-img.jpg",
       category: "Wardrobes",
       title: "Compact Built-in Wooden Closet Setup",
     },

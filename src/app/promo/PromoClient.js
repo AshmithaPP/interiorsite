@@ -198,7 +198,7 @@ export default function PromoClient() {
 
   const recentProjects = [
     { title: "Living Room Interiors", image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" },
-    { title: "Modular Kitchens", image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" },
+    { title: "Modular Kitchens", image: "/hero/modular-kitchen/1.png" },
     { title: "Bedrooms", image: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=800&q=80" },
     { title: "Villas", image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" },
     { title: "Apartments", image: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80" },
@@ -213,7 +213,7 @@ export default function PromoClient() {
       unit: "Lakhs",
       description: "Smart and budget-friendly complete 1 BHK home interior design package with premium finishes.",
       ctaText: "Book Consultation",
-      coverImage: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80",
+      coverImage: "/home/1.png",
     },
     {
       id: 2,
@@ -222,7 +222,7 @@ export default function PromoClient() {
       unit: "Lakhs",
       description: "Elegant and highly customized 2 BHK home interior package with modular units and space-saving solutions.",
       ctaText: "Book Consultation",
-      coverImage: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80",
+      coverImage: "/home/2.png",
     },
     {
       id: 3,
@@ -231,7 +231,7 @@ export default function PromoClient() {
       unit: "Lakhs",
       description: "Luxury and ultra-premium 3 BHK design package featuring bespoke materials, custom layouts, and luxury finishes.",
       ctaText: "Book Consultation",
-      coverImage: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=800&q=80",
+      coverImage: "/home/3.png",
     },
   ];
 

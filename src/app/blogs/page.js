@@ -25,7 +25,7 @@ const BLOG_POSTS = [
     category: "Apartment Interiors",
     readTime: "4 min read",
     excerpt: "Planning a new home is an exciting journey. One of the most common questions homeowners ask when beginning the interiors is how long it will take to complete. While there is no single answer, understanding how the design process works can help manage your timelines.",
-    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=600&auto=format&fit=crop"
+    image: "/blogs/blogs-apartment.jpg"
   },
   {
     id: 2,
@@ -70,7 +70,7 @@ const BLOG_POSTS = [
     category: "Space Planning",
     readTime: "4 min read",
     excerpt: "The family was on the lookout for professional interior designers to execute beautiful home interiors. See how we optimized the dining zone flow, using custom glass partitions and built-in consoles.",
-    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=600&auto=format&fit=crop"
+    image: "/blogs/blogs-space-planning.webp"
   },
   {
     id: 7,

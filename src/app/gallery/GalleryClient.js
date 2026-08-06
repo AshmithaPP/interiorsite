@@ -126,25 +126,25 @@ export default function GalleryClient() {
     // False Ceilings
     {
       id: 13,
-      src: "/false1.png",
+      src: "/hero/false-ceiling/false1.png",
       category: "False Ceiling",
       title: "Linear Drop Ceiling with Cove Lighting",
     },
     {
       id: 14,
-      src: "/false2.jpg",
+      src: "/hero/false-ceiling/false2.jpg",
       category: "False Ceiling",
       title: "Recessed Panel Lighting for Dining Halls",
     },
     {
       id: 15,
-      src: "/false3.webp",
+      src: "/hero/false-ceiling/false3.webp",
       category: "False Ceiling",
       title: "Modern Wooden Beam Ceiling Accent",
     },
     {
       id: 16,
-      src: "/false4.jpg",
+      src: "/hero/false-ceiling/false4.jpg",
       category: "False Ceiling",
       title: "Minimal Geometric Drywall Multi-tier Ceiling",
     },

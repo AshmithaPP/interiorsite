@@ -45,7 +45,7 @@ export default function ConsultationClient() {
   const whyChooseList = [
     {
       title: "10+ Years of Experience",
-      desc: "A decade of expertise turning home and office concepts into actual, breathtaking spaces.",
+      desc: "With over a decade of experience, we bring expertise, creativity, and attention to detail to every interior project we undertake.",
       icon: LuAward
     },
     {

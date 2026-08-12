@@ -5,6 +5,7 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import InView from "@/components/InView";
+import PackageOffers from "@/components/PackageOffers";
 import { 
   LuCheck, 
   LuCalendar, 
@@ -31,7 +32,7 @@ export default function ServicesPage() {
     {
       id: 1,
       icon: <LuAward size={36} />,
-      title: "21+ Years Experience",
+      title: "10+ Years Experience",
       desc: "Being the best affordable interior designers in Chennai, we bring expertise and dedication to every project, turning your design dreams into reality.",
     },
     {
@@ -49,20 +50,20 @@ export default function ServicesPage() {
     {
       id: 4,
       icon: <LuFactory size={36} />,
-      title: "Own Factory Materials",
-      desc: "Every material for the interior designs that we use is from our manufacturing unit, so we are cost-effective and 100% customizable.",
+      title: "Customised Interior Solutions",
+      desc: "We create interiors tailored to your lifestyle, preferences, and budget—combining functionality, aesthetics, and smart design.",
     },
     {
       id: 5,
       icon: <LuUsers size={36} />,
-      title: "4530+ Happy Customers",
-      desc: "Save your time and ensure your project is in good hands! We have successfully completed over 4,530 luxury villas and commercial projects.",
+      title: "100+ Happy Customers",
+      desc: "Save your time and ensure your project is in good hands! We have successfully completed over 100+ luxury villas and commercial projects.",
     },
     {
       id: 6,
       icon: <LuHeartHandshake size={36} />,
-      title: "Lifetime Service Support",
-      desc: "Bizzoppo Interiors provide luxurious villa makeover and trendy commercial fit-out with lifetime service support and reliable design ideas.",
+      title: "Dedicated Support & Service",
+      desc: "Our relationship doesn’t end after project completion. We provide reliable support and service to help keep your interiors looking and functioning their best.",
     },
   ];
 
@@ -81,67 +82,13 @@ export default function ServicesPage() {
       image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
     },
     {
-      id: "corporate",
-      title: "Corporate",
-      desc: "Our corporate interior design solutions enhance office productivity with smart space planning, stylish workstations, and collaborative meeting areas.",
-      image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80",
+      id: "Vila",
+      title: "Vila",
+      desc: "Our Vila interior design solutions enhance vila productivity with smart space planning, stylish spaces, and collaborative vila areas.",
+      image: "/vila img1.webp",
     },
   ];
 
-  // Pricing packages
-  const pricingPackages = [
-    {
-      id: "essential",
-      badge: "Best Value",
-      title: "Essential Package",
-      desc: "Core woodworks and modular templates for a standard 2BHK/3BHK.",
-      price: "4.50",
-      unit: "Lakhs onwards",
-      features: [
-        "Modular Kitchen (Laminate Finish)",
-        "Master Bedroom Wardrobe (Hinged)",
-        "Living Room TV Unit",
-        "Estimated Timeline: 35 Days",
-        "Material: Premium Marine Ply",
-        "5 Years Service Warranty",
-      ],
-      isFeatured: false,
-    },
-    {
-      id: "premium",
-      badge: "Most Popular",
-      title: "Premium Package",
-      desc: "Upgraded designs with glossy options and customized modular fittings.",
-      price: "7.85",
-      unit: "Lakhs onwards",
-      features: [
-        "Modular Kitchen (Acrylic Finish)",
-        "Master & Guest Bedroom Wardrobes (Sliding)",
-        "Living Room TV Unit & Shoe Rack",
-        "Estimated Timeline: 45 Days",
-        "Material: Water-Resistant Ply & MDF",
-        "10 Years Extended Warranty",
-      ],
-      isFeatured: true,
-    },
-    {
-      id: "luxury",
-      badge: "Elite Choice",
-      title: "Luxury Royale",
-      desc: "High-end bespoke interiors with premium textures and materials.",
-      price: "12.40",
-      unit: "Lakhs onwards",
-      features: [
-        "Bespoke Kitchen (Anti-fingerprint Matte/Glass)",
-        "Custom Wardrobes with Profile Lighting",
-        "Premium TV Unit, Paneling, & False Ceiling",
-        "Estimated Timeline: 60 Days",
-        "Material: High-Grade MDF & Acrylic",
-        "10 Years Warranty & Lifetime Support",
-      ],
-      isFeatured: false,
-    },
-  ];
 
   // Portfolio items
   const portfolioItems = [
@@ -332,52 +279,9 @@ export default function ServicesPage() {
           </section>
 
           {/* Section: Home Interiors Pricing Packages */}
-          <section id="pricing" className="services-section">
-            <div className="container-fluid px-md-5" style={{ maxWidth: "1600px" }}>
-              <InView className="reveal-up" threshold={0.1}>
-                <h2 className="services-section-title">Home Interiors Pricing Packages</h2>
-                <span className="services-section-subtitle">Affordable Bespoke Packages For You</span>
-              </InView>
-
-              <div className="pricing-grid">
-                {pricingPackages.map((pkg, idx) => (
-                  <InView
-                    key={pkg.id}
-                    className={`pricing-card ${pkg.isFeatured ? "featured" : ""} reveal-up`}
-                    style={{ transitionDelay: `${idx * 0.1}s` }}
-                    threshold={0.1}
-                  >
-                    <div className="pricing-header">
-                      {pkg.isFeatured && <span className="pricing-badge">{pkg.badge}</span>}
-                      <h3 className="pricing-title">{pkg.title}</h3>
-                      <p className="pricing-desc">{pkg.desc}</p>
-                      <div className="pricing-amount-group">
-                        <span className="pricing-currency">₹</span>
-                        <span className="pricing-val">{pkg.price}</span>
-                        <span className="pricing-unit">{pkg.unit}</span>
-                      </div>
-                    </div>
-                    <div className="pricing-body">
-                      <span className="pricing-features-title">What&apos;s Included</span>
-                      <ul className="pricing-features-list">
-                        {pkg.features.map((feat, fIdx) => (
-                          <li key={fIdx} className="pricing-feature-item">
-                            <LuCheck size={16} className="pricing-feature-icon" />
-                            <span>{feat}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="pricing-footer">
-                      <button onClick={() => scrollToAnchor("estimation")} className="pricing-select-btn">
-                        Get Estimate
-                      </button>
-                    </div>
-                  </InView>
-                ))}
-              </div>
-            </div>
-          </section>
+          <div id="pricing">
+            <PackageOffers />
+          </div>
 
           {/* Section: low budget interior designers in chennai - Our Latest Portfolio */}
           <section id="portfolio" className="services-section" style={{ backgroundColor: "rgba(15, 32, 24, 0.03)" }}>
@@ -417,112 +321,133 @@ export default function ServicesPage() {
 
           {/* Section: Contact / Estimation Form */}
           <section id="estimation" className="estimation-section">
-            <div className="container">
-              <div className="estimation-card">
-                <InView className="reveal-up" threshold={0.1}>
-                  <h2 
-                    className="text-center mb-2 fw-bold" 
-                    style={{ 
-                      fontFamily: "var(--font-cormorant), serif",
-                      color: "var(--text-on-dark-title)",
-                      fontSize: "clamp(2rem, 3.5vw, 2.75rem)"
-                    }}
-                  >
-                    Contact Our Designers!
-                  </h2>
-                  <p 
-                    className="text-center mb-5" 
-                    style={{ 
-                      color: "var(--text-on-dark-muted)",
-                      fontSize: "0.9rem"
-                    }}
-                  >
+            <div className="estimation-outer">
+              <InView className="reveal-up" threshold={0.1}>
+                <div className="estimation-header-block">
+                  <span className="estimation-eyebrow">Free Consultation</span>
+                  <h2 className="estimation-main-title">Contact Our Designers!</h2>
+                  <p className="estimation-main-sub">
                     Get a Free Site Evaluation and Consultation Today
                   </p>
-                </InView>
+                </div>
+              </InView>
 
-                {formSubmitted ? (
-                  <div className="text-center py-5" style={{ color: "var(--primary-color)" }}>
-                    <h3 className="fw-bold mb-3" style={{ fontFamily: "var(--font-cormorant), serif", fontSize: "2rem" }}>
-                      Thank You!
-                    </h3>
-                    <p style={{ color: "var(--text-on-dark-body)", fontSize: "1rem" }}>
-                      Our design consultant will contact you shortly with your free estimation report.
+              <div className="estimation-split-card">
+                {/* Left Info Panel */}
+                <div className="estimation-info-panel">
+                  <div className="estimation-info-inner">
+                    <h3 className="estimation-info-title">Why Connect With Us?</h3>
+                    <ul className="estimation-info-list">
+                      <li className="estimation-info-item">
+                        <span className="estimation-info-icon"><LuCheck size={16} /></span>
+                        <span>100% Free Site Visit &amp; Measurement</span>
+                      </li>
+                      <li className="estimation-info-item">
+                        <span className="estimation-info-icon"><LuCheck size={16} /></span>
+                        <span>Personalized 3D Design Proposals</span>
+                      </li>
+                      <li className="estimation-info-item">
+                        <span className="estimation-info-icon"><LuCheck size={16} /></span>
+                        <span>Transparent Pricing, No Hidden Costs</span>
+                      </li>
+                      <li className="estimation-info-item">
+                        <span className="estimation-info-icon"><LuCheck size={16} /></span>
+                        <span>Dedicated Project Manager Assigned</span>
+                      </li>
+                    </ul>
+                    <div className="estimation-info-divider" />
+                    <p className="estimation-info-footer-text">
+                      Trusted by <strong>100+</strong> homeowners across Chennai
                     </p>
                   </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="estimation-form-grid">
-                    <div className="estimation-input-group">
-                      <label className="estimation-label">Full Name</label>
-                      <input 
-                        type="text" 
-                        required 
-                        className={`estimation-input ${errors.name ? "is-invalid" : ""}`} 
-                        placeholder="e.g. John Doe"
-                        value={name}
-                        onChange={(e) => {
-                          setName(e.target.value);
-                          if (errors.name) setErrors((prev) => ({ ...prev, name: "" }));
-                        }}
-                      />
-                      {errors.name && <span className="estimation-error-msg" style={{ color: "#ff4d4d", fontSize: "0.75rem", marginTop: "0.25rem", display: "block" }}>{errors.name}</span>}
-                    </div>
+                </div>
 
-                    <div className="estimation-input-group">
-                      <label className="estimation-label">Email Address</label>
-                      <input 
-                        type="email" 
-                        required 
-                        className={`estimation-input ${errors.email ? "is-invalid" : ""}`} 
-                        placeholder="e.g. john@example.com"
-                        value={email}
-                        onChange={(e) => {
-                          setEmail(e.target.value);
-                          if (errors.email) setErrors((prev) => ({ ...prev, email: "" }));
-                        }}
-                      />
-                      {errors.email && <span className="estimation-error-msg" style={{ color: "#ff4d4d", fontSize: "0.75rem", marginTop: "0.25rem", display: "block" }}>{errors.email}</span>}
+                {/* Right Form Panel */}
+                <div className="estimation-form-panel">
+                  {formSubmitted ? (
+                    <div className="estimation-success-block">
+                      <div className="estimation-success-icon">
+                        <LuCheck size={32} />
+                      </div>
+                      <h3 className="estimation-success-title">Thank You!</h3>
+                      <p className="estimation-success-text">
+                        Our design consultant will contact you shortly with your free estimation report.
+                      </p>
                     </div>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="estimation-form-grid">
+                      <div className="estimation-input-group">
+                        <label className="estimation-label">Full Name</label>
+                        <input 
+                          type="text" 
+                          required 
+                          className={`estimation-input ${errors.name ? "is-invalid" : ""}`} 
+                          placeholder="e.g. John Doe"
+                          value={name}
+                          onChange={(e) => {
+                            setName(e.target.value);
+                            if (errors.name) setErrors((prev) => ({ ...prev, name: "" }));
+                          }}
+                        />
+                        {errors.name && <span className="estimation-error-msg">{errors.name}</span>}
+                      </div>
 
-                    <div className="estimation-input-group">
-                      <label className="estimation-label">Mobile Number</label>
-                      <input 
-                        type="tel" 
-                        required 
-                        className={`estimation-input ${errors.phone ? "is-invalid" : ""}`} 
-                        placeholder="e.g. +91 98765 43210"
-                        value={phone}
-                        onChange={(e) => {
-                          setPhone(e.target.value);
-                          if (errors.phone) setErrors((prev) => ({ ...prev, phone: "" }));
-                        }}
-                      />
-                      {errors.phone && <span className="estimation-error-msg" style={{ color: "#ff4d4d", fontSize: "0.75rem", marginTop: "0.25rem", display: "block" }}>{errors.phone}</span>}
-                    </div>
+                      <div className="estimation-input-group">
+                        <label className="estimation-label">Email Address</label>
+                        <input 
+                          type="email" 
+                          required 
+                          className={`estimation-input ${errors.email ? "is-invalid" : ""}`} 
+                          placeholder="e.g. john@example.com"
+                          value={email}
+                          onChange={(e) => {
+                            setEmail(e.target.value);
+                            if (errors.email) setErrors((prev) => ({ ...prev, email: "" }));
+                          }}
+                        />
+                        {errors.email && <span className="estimation-error-msg">{errors.email}</span>}
+                      </div>
 
-                    <div className="estimation-input-group">
-                      <label className="estimation-label">Property Location</label>
-                      <input 
-                        type="text" 
-                        required 
-                        className={`estimation-input ${errors.location ? "is-invalid" : ""}`} 
-                        placeholder="e.g. Chennai, Adyar"
-                        value={location}
-                        onChange={(e) => {
-                          setLocation(e.target.value);
-                          if (errors.location) setErrors((prev) => ({ ...prev, location: "" }));
-                        }}
-                      />
-                      {errors.location && <span className="estimation-error-msg" style={{ color: "#ff4d4d", fontSize: "0.75rem", marginTop: "0.25rem", display: "block" }}>{errors.location}</span>}
-                    </div>
+                      <div className="estimation-input-group">
+                        <label className="estimation-label">Mobile Number</label>
+                        <input 
+                          type="tel" 
+                          required 
+                          className={`estimation-input ${errors.phone ? "is-invalid" : ""}`} 
+                          placeholder="e.g. +91 98765 43210"
+                          value={phone}
+                          onChange={(e) => {
+                            setPhone(e.target.value);
+                            if (errors.phone) setErrors((prev) => ({ ...prev, phone: "" }));
+                          }}
+                        />
+                        {errors.phone && <span className="estimation-error-msg">{errors.phone}</span>}
+                      </div>
 
-                    <div className="col-12 text-center mt-3">
-                      <button type="submit" className="estimation-submit-btn">
-                        Get Free Estimation
-                      </button>
-                    </div>
-                  </form>
-                )}
+                      <div className="estimation-input-group">
+                        <label className="estimation-label">Property Location</label>
+                        <input 
+                          type="text" 
+                          required 
+                          className={`estimation-input ${errors.location ? "is-invalid" : ""}`} 
+                          placeholder="e.g. Chennai, Adyar"
+                          value={location}
+                          onChange={(e) => {
+                            setLocation(e.target.value);
+                            if (errors.location) setErrors((prev) => ({ ...prev, location: "" }));
+                          }}
+                        />
+                        {errors.location && <span className="estimation-error-msg">{errors.location}</span>}
+                      </div>
+
+                      <div className="estimation-submit-wrap">
+                        <button type="submit" className="estimation-submit-btn">
+                          Get Free Estimation <LuArrowRight size={16} />
+                        </button>
+                      </div>
+                    </form>
+                  )}
+                </div>
               </div>
             </div>
           </section>
